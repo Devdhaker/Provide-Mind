@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Topics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #89f7fe, #66a6ff);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            font-size: 2em;
+        }
+
+        .topic {
+            margin-bottom: 10px;
+            padding: 10px;
+            background: #fff;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-size: 0.9em;
+        }
+
+        .topic:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .topic h2 {
+            color: #4a90e2;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+
+        .topic p {
+            color: #555;
+            font-size: 0.9em;
+            margin: 3px 0 8px;
+        }
+
+        .topic a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff8a00, #e52e71);
+            padding: 5px 15px;
+            border-radius: 15px;
+            display: inline-block;
+            font-size: 0.85em;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        .topic a:hover {
+            background: linear-gradient(45deg, #e52e71, #ff8a00);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <h1>Study Topics</h1>
+    <div id="topics-container">
+        <!-- Topics will be dynamically added by JavaScript -->
+    </div>
+    <script src="computer_science.js"></script>
+</body>
+</html>
