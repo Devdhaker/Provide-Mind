@@ -6,7 +6,7 @@ const topics = [
     },
     {
         title: "Physics",
-        link: "./ch/tophic1.html", // Address to the Physics page
+        link: "./ch/tophic2.html", // Address to the Physics page
     },
     {
         title: "Chemistry",
