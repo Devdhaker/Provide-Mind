@@ -2,15 +2,15 @@
 const topics = [
     {
         title: "Mathematics",
-        link: "./bio/tophic1.html", // Address to the Mathematics page
+        link: "./math/1.html", // Address to the Mathematics page
     },
     {
         title: "Physics",
-        link: "./physics/physics.html", // Address to the Physics page
+        link: "./math/2.html", // Address to the Physics page
     },
     {
         title: "Chemistry",
-        link: "./chemistry/chemistry.html", // Address to the Chemistry page
+        link: "./math/topic3.html", // Address to the Chemistry page
     },
     {
         title: "Biology",
@@ -28,38 +28,55 @@ const container = document.getElementById("topics-container");
 // Function to fetch the first two lines from a topic page
 function fetchTopicDescription(link, callback) {
     fetch(link)
-        .then((response) => response.text())
+        .then((response) => {
+            if (!response.ok) throw new Error("Failed to load page.");
+            return response.text();
+        })
         .then((html) => {
             const tempDiv = document.createElement("div");
             tempDiv.innerHTML = html;
 
-            // Find the first two lines (e.g., <h1> and <p>)
+            // Find the first <h1> and <p> tags
             const title = tempDiv.querySelector("h1")?.innerText || "No Title Found";
             const description = tempDiv.querySelector("p")?.innerText || "No Description Found";
 
             callback({ title, description });
         })
         .catch(() => {
-            callback({ title: "Error Loading Page", description: "Unable to load details." });
+            callback({
+                title: "Error Loading Page",
+                description: "Unable to load details from the topic page.",
+            });
         });
 }
 
 // Generate and append topics dynamically
-topics.forEach((topic) => {
-    fetchTopicDescription(topic.link, (data) => {
-        const topicDiv = document.createElement("div");
-        topicDiv.className = "topic";
+function generateTopics() {
+    // Reverse the topics array to make the latest topic appear first
+    const reversedTopics = [...topics].reverse();
 
-        // Add topic data
-        topicDiv.innerHTML = `
-            <h2>${data.title}</h2>
-            <p>${data.description}</p>
-            <a href="${topic.link}" target="_blank">Read More</a>
-        `;
+    reversedTopics.forEach((topic) => {
+        fetchTopicDescription(topic.link, (data) => {
+            const topicDiv = document.createElement("div");
+            topicDiv.className = "topic";
 
-        // Make the entire box clickable
-        topicDiv.onclick = () => window.open(topic.link, "_blank");
+            // Add topic content dynamically
+            topicDiv.innerHTML = `
+                <h2>${data.title}</h2>
+                <p>${data.description}</p>
+                <button class="read-more">Read More</button>
+            `;
 
-        container.appendChild(topicDiv);
+            // Navigate to the topic in the same tab on button click
+            topicDiv.querySelector(".read-more").onclick = () => {
+                window.location.href = topic.link;
+            };
+
+            // Prepend the topic to the container to ensure it appears at the top
+            container.prepend(topicDiv);
+        });
     });
-});
+}
+
+// Initialize topic generation
+generateTopics();
