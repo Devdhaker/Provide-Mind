@@ -45,15 +45,21 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
     </style>
+    <script>
+        function navigateToPage(page) {
+            // Redirect to the selected page
+            window.location.href = page;
+        }
+    </script>
 </head>
 <body>
     <h1>Study Topics</h1>
     <ul>
-        <li><a href="mathematics.html" class="button" target="_blank">Topic 1: Mathematics</a></li>
-        <li><a href="physics.html" class="button" target="_blank">Topic 2: Physics</a></li>
-        <li><a href="chemistry.html" class="button" target="_blank">Topic 3: Chemistry</a></li>
-        <li><a href="biology.html" class="button" target="_blank">Topic 4: Biology</a></li>
-        <li><a href="computer_science.html" class="button" target="_blank">Topic 5: Computer Science</a></li>
+        <li><button class="button" onclick="navigateToPage('mathematics.html')">Topic 1: Mathematics</button></li>
+        <li><button class="button" onclick="navigateToPage('physics.html')">Topic 2: Physics</button></li>
+        <li><button class="button" onclick="navigateToPage('chemistry.html')">Topic 3: Chemistry</button></li>
+        <li><button class="button" onclick="navigateToPage('biology.html')">Topic 4: Biology</button></li>
+        <li><button class="button" onclick="navigateToPage('computer_science.html')">Topic 5: Computer Science</button></li>
     </ul>
 </body>
 </html>
