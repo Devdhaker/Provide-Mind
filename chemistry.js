@@ -14,11 +14,11 @@ const topics = [
     },
     {
         title: "Biology",
-        link: "./ch/tophic2.html", // Address to the Biology page
+        link: "./ch/tophic4.html", // Address to the Biology page
     },
     {
         title: "Computer Science",
-        link: "./ch/tophic2.html", // Address to the Computer Science page
+        link: "./ch/Tophic5.html", // Address to the Computer Science page
     },
 ];
 
