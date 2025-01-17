@@ -2,23 +2,23 @@
 const topics = [
     {
         title: "Mathematics",
-        link: "./bio/tophic1.html", // Address to the Mathematics page
+        link: "./Phy/tophic1.html", // Address to the Mathematics page
     },
     {
         title: "Physics",
-        link: "./bio/tophic2.html", // Address to the Physics page
+        link: "./Phy/tophic2.html", // Address to the Physics page
     },
     {
         title: "Chemistry",
-        link: "./bio/tophic3.html", // Address to the Chemistry page
+        link: "./Phy/tophic3.html", // Address to the Chemistry page
     },
     {
         title: "Biology",
-        link: "./bio/tophic4.html", // Address to the Biology page
+        link: "./Phy/tophic4.html", // Address to the Biology page
     },
     {
         title: "Computer Science",
-        link: "./bio/tophic5.html", // Address to the Computer Science page
+        link: "./Phy/tophic5.html", // Address to the Computer Science page
     },
 ];
 
