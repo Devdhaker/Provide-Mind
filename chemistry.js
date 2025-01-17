@@ -2,23 +2,23 @@
 const topics = [
     {
         title: "Mathematics",
-        link: "./math/1.html", // Address to the Mathematics page
+        link: "./bio/tophic1.html", // Address to the Mathematics page
     },
     {
         title: "Physics",
-        link: "./math/2.html", // Address to the Physics page
+        link: "./bio/tophic2.html", // Address to the Physics page
     },
     {
         title: "Chemistry",
-        link: "./math/topic3.html", // Address to the Chemistry page
+        link: "./bio/tophic3.html", // Address to the Chemistry page
     },
     {
         title: "Biology",
-        link: "./biology/biology.html", // Address to the Biology page
+        link: "./bio/tophic4.html", // Address to the Biology page
     },
     {
         title: "Computer Science",
-        link: "./computer_science/computer_science.html", // Address to the Computer Science page
+        link: "./bio/tophic5.html", // Address to the Computer Science page
     },
 ];
 
@@ -67,8 +67,18 @@ function generateTopics() {
                 <button class="read-more">Read More</button>
             `;
 
-            // Navigate to the topic in the same tab on button click
-            topicDiv.querySelector(".read-more").onclick = () => {
+            // Make the entire topic clickable
+            topicDiv.style.cursor = "pointer";
+
+            // Add click event to navigate to the topic page
+            topicDiv.onclick = () => {
+                window.location.href = topic.link;
+            };
+
+            // Prevent button from propagating the click event
+            const readMoreButton = topicDiv.querySelector(".read-more");
+            readMoreButton.onclick = (event) => {
+                event.stopPropagation(); // Stop the event from triggering the topicDiv's onclick
                 window.location.href = topic.link;
             };
 
