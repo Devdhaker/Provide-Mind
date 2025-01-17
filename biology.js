@@ -67,8 +67,18 @@ function generateTopics() {
                 <button class="read-more">Read More</button>
             `;
 
-            // Navigate to the topic in the same tab on button click
-            topicDiv.querySelector(".read-more").onclick = () => {
+            // Make the entire topic clickable
+            topicDiv.style.cursor = "pointer";
+
+            // Add click event to navigate to the topic page
+            topicDiv.onclick = () => {
+                window.location.href = topic.link;
+            };
+
+            // Prevent button from propagating the click event
+            const readMoreButton = topicDiv.querySelector(".read-more");
+            readMoreButton.onclick = (event) => {
+                event.stopPropagation(); // Stop the event from triggering the topicDiv's onclick
                 window.location.href = topic.link;
             };
 
