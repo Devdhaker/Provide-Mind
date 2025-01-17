@@ -6,19 +6,19 @@ const topics = [
     },
     {
         title: "Physics",
-        link: "./bio/tophic2.html", // Address to the Physics page
+        link: "./Chemistery/tophic1.html", // Address to the Physics page
     },
     {
         title: "Chemistry",
-        link: "./bio/tophic3.html", // Address to the Chemistry page
+        link: "./Chemistery/tophic1.html", // Address to the Chemistry page
     },
     {
         title: "Biology",
-        link: "./bio/tophic4.html", // Address to the Biology page
+        link: "./Chemistery/tophic1.html", // Address to the Biology page
     },
     {
         title: "Computer Science",
-        link: "./bio/tophic5.html", // Address to the Computer Science page
+        link: "./Chemistery/tophic1.html", // Address to the Computer Science page
     },
 ];
 
