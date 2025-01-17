@@ -2,7 +2,7 @@
 const topics = [
     {
         title: "Mathematics",
-        link: "./math/1.html", // Address to the Mathematics page
+        link: "./math/tophic1.html", // Address to the Mathematics page
     },
     {
         title: "Physics",
