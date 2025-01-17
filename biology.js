@@ -18,7 +18,7 @@ const topics = [
     },
     {
         title: "Computer Science",
-        link: "./computer_science/computer_science.html", // Address to the Computer Science page
+        link: "./bio/tophic5.html", // Address to the Computer Science page
     },
 ];
 
