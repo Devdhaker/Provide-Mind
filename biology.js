@@ -115,7 +115,7 @@
     <div id="topics-container">
         <!-- Topics will be dynamically added by JavaScript -->
     </div>
-    <script src="biology.js"></script>
+    <script src="chemistry.js"></script>
     <script>
         // Functions to handle other actions (if needed)
         function startQuiz() {
