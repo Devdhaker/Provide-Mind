@@ -1,76 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mathematics Topics</title>
+    <title>रसायन विज्ञान के प्रमुख टॉपिक्स</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(120deg, #89f7fe, #66a6ff);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #283c86, #45a247);
             margin: 0;
             padding: 20px;
-            color: #333;
+            color: #f4f4f4;
         }
 
         h1 {
             text-align: center;
-            color: #fff;
             margin-bottom: 20px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-            font-size: 2em;
+            font-size: 2.5em;
+            font-weight: 600;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
         }
+        .buttons {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.buttons button {
+    font-size: 1.8em; /* बटन का टेक्स्ट बड़ा करने के लिए */
+    font-weight: bold;
+    padding: 15px 30px; /* बटन की ऊंचाई और चौड़ाई बढ़ाने के लिए */
+    margin: 20px;
+    color: #fff;
+    background: linear-gradient(90deg, #ff8a00, #da1b60);
+    border: none;
+    border-radius: 40px; /* बटन को अधिक गोल करने के लिए */
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.buttons button:hover {
+    background: linear-gradient(90deg, #da1b60, #ff8a00);
+    transform: scale(1.1); /* होवर पर थोड़ा बड़ा करने के लिए */
+}
+
+
+       
 
         .topic {
             margin-bottom: 20px;
-            padding: 15px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .topic:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
         .topic h2 {
-            color: #4a90e2;
-            margin-bottom: 5px;
-            font-size: 1.2em;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #ffdf00;
         }
 
         .topic p {
-            color: #555;
-            font-size: 0.9em;
-            margin: 3px 0 8px;
+            font-size: 1em;
+            margin-bottom: 15px;
+            line-height: 1.6;
         }
 
         .topic a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-            background: linear-gradient(45deg, #ff8a00, #e52e71);
-            padding: 5px 15px;
-            border-radius: 15px;
             display: inline-block;
-            font-size: 0.85em;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-            transition: background 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: bold;
+            padding: 10px 20px;
+            color: #fff;
+            background: linear-gradient(90deg, #ff8a00, #da1b60);
+            border-radius: 30px;
+            transition: background 0.3s ease, transform 0.3s ease;
         }
 
         .topic a:hover {
-            background: linear-gradient(45deg, #e52e71, #ff8a00);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(90deg, #da1b60, #ff8a00);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            .topic {
+                padding: 15px;
+            }
+            .topic h2 {
+                font-size: 1.2em;
+            }
+            .topic p {
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Mathematics Topics</h1>
+    <h1>रसायन विज्ञान के प्रमुख टॉपिक्स</h1>
+    <div class="buttons">
+        <button onclick="window.location.href='quiz.html'">क्विज़</button>
+        <button onclick="window.location.href='question-answer.html'">प्रश्न और उत्तर</button>
+    </div>
     <div id="topics-container">
         <!-- Topics will be dynamically added by JavaScript -->
     </div>
     <script src="computer_science.js"></script>
+    <script>
+        // Functions to handle other actions (if needed)
+        function startQuiz() {
+            window.location.href = 'quiz.html'; // Redirects to quiz page in same tab
+        }
+
+        function showQuestionAnswer() {
+            window.location.href = 'question-answer.html'; // Redirects to question-answer page in same tab
+        }
+    </script>
 </body>
 </html>
