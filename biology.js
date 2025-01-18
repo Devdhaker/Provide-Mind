@@ -1,130 +1,92 @@
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>रसायन विज्ञान के प्रमुख टॉपिक्स</title>
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #283c86, #45a247);
-            margin: 0;
-            padding: 20px;
-            color: #f4f4f4;
-        }
+// Topics data with folder addresses
+const topics = [
+    {
+        title: "Mathematics",
+        link: "./bio/tophic1.html", // Address to the Mathematics page
+    },
+    {
+        title: "Physics",
+        link: "./bio/tophic2.html", // Address to the Physics page
+    },
+    {
+        title: "Chemistry",
+        link: "./bio/tophic3.html", // Address to the Chemistry page
+    },
+    {
+        title: "Biology",
+        link: "./bio/tophic4.html", // Address to the Biology page
+    },
+    {
+        title: "Computer Science",
+        link: "./bio/tophic5.html", // Address to the Computer Science page
+    },
+];
 
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 2.5em;
-            font-weight: 600;
-            color: #fff;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-        }
-        .buttons {
-    text-align: center;
-    margin-bottom: 20px;
+// Select the container
+const container = document.getElementById("topics-container");
+
+// Function to fetch the first two lines from a topic page
+function fetchTopicDescription(link, callback) {
+    fetch(link)
+        .then((response) => {
+            if (!response.ok) throw new Error("Failed to load page.");
+            return response.text();
+        })
+        .then((html) => {
+            const tempDiv = document.createElement("div");
+            tempDiv.innerHTML = html;
+
+            // Find the first <h1> and <p> tags
+            const title = tempDiv.querySelector("h1")?.innerText || "No Title Found";
+            const description = tempDiv.querySelector("p")?.innerText || "No Description Found";
+
+            callback({ title, description });
+        })
+        .catch(() => {
+            callback({
+                title: "Error Loading Page",
+                description: "Unable to load details from the topic page.",
+            });
+        });
 }
 
-.buttons button {
-    font-size: 1.8em; /* बटन का टेक्स्ट बड़ा करने के लिए */
-    font-weight: bold;
-    padding: 15px 30px; /* बटन की ऊंचाई और चौड़ाई बढ़ाने के लिए */
-    margin: 20px;
-    color: #fff;
-    background: linear-gradient(90deg, #ff8a00, #da1b60);
-    border: none;
-    border-radius: 40px; /* बटन को अधिक गोल करने के लिए */
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
+// Generate and append topics dynamically
+function generateTopics() {
+    // Reverse the topics array to make the latest topic appear first
+    const reversedTopics = [...topics].reverse();
+
+    reversedTopics.forEach((topic) => {
+        fetchTopicDescription(topic.link, (data) => {
+            const topicDiv = document.createElement("div");
+            topicDiv.className = "topic";
+
+            // Add topic content dynamically
+            topicDiv.innerHTML = `
+                <h2>${data.title}</h2>
+                <p>${data.description}</p>
+                <button class="read-more">Read More</button>
+            `;
+
+            // Make the entire topic clickable
+            topicDiv.style.cursor = "pointer";
+
+            // Add click event to navigate to the topic page
+            topicDiv.onclick = () => {
+                window.location.href = topic.link;
+            };
+
+            // Prevent button from propagating the click event
+            const readMoreButton = topicDiv.querySelector(".read-more");
+            readMoreButton.onclick = (event) => {
+                event.stopPropagation(); // Stop the event from triggering the topicDiv's onclick
+                window.location.href = topic.link;
+            };
+
+            // Prepend the topic to the container to ensure it appears at the top
+            container.prepend(topicDiv);
+        });
+    });
 }
 
-.buttons button:hover {
-    background: linear-gradient(90deg, #da1b60, #ff8a00);
-    transform: scale(1.1); /* होवर पर थोड़ा बड़ा करने के लिए */
-}
-
-
-       
-
-        .topic {
-            margin-bottom: 20px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .topic:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .topic h2 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-            color: #ffdf00;
-        }
-
-        .topic p {
-            font-size: 1em;
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-
-        .topic a {
-            display: inline-block;
-            text-decoration: none;
-            font-size: 0.9em;
-            font-weight: bold;
-            padding: 10px 20px;
-            color: #fff;
-            background: linear-gradient(90deg, #ff8a00, #da1b60);
-            border-radius: 30px;
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
-
-        .topic a:hover {
-            background: linear-gradient(90deg, #da1b60, #ff8a00);
-            transform: scale(1.05);
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
-            .topic {
-                padding: 15px;
-            }
-            .topic h2 {
-                font-size: 1.2em;
-            }
-            .topic p {
-                font-size: 0.9em;
-            }
-        }
-    </style>
-</head>
-<body>
-    <h1>रसायन विज्ञान के प्रमुख टॉपिक्स</h1>
-    <div class="buttons">
-        <button onclick="window.location.href='quiz.html'">क्विज़</button>
-        <button onclick="window.location.href='question-answer.html'">प्रश्न और उत्तर</button>
-    </div>
-    <div id="topics-container">
-        <!-- Topics will be dynamically added by JavaScript -->
-    </div>
-    <script src="chemistry.js"></script>
-    <script>
-        // Functions to handle other actions (if needed)
-        function startQuiz() {
-            window.location.href = 'quiz.html'; // Redirects to quiz page in same tab
-        }
-
-        function showQuestionAnswer() {
-            window.location.href = 'question-answer.html'; // Redirects to question-answer page in same tab
-        }
-    </script>
-</body>
-</html>
+// Initialize topic generation
+generateTopics();
