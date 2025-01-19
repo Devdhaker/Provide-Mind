@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>अध्ययन के टॉपिक्स</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+            color: #00ffcc;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px #00ffcc;
+        }
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .category {
+            display: block;
+            padding: 20px;
+            background: linear-gradient(145deg, #333333, #222222);
+            color: #ffcc00;
+            text-align: center;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        .category:hover {
+            background: #444444;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8);
+        }
+        footer {
+            margin-top: 40px;
+            color: #888888;
+            font-size: 14px;
+        }
+        footer a {
+            color: #00ffcc;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>अध्ययन के टॉपिक्स</h1>
+        <div class="categories">
+            <a href="math-preparation.html" class="category">गणित तैयारी</a>
+            <a href="logical-reasoning.html" class="category">तार्किक क्षमता</a>
+            <a href="general-knowledge.html" class="category">सामान्य ज्ञान</a>
+            <a href="current-affairs.html" class="category">करंट अफेयर्स</a>
+            <a href="english-language.html" class="category">अंग्रेज़ी भाषा</a>
+            <a href="indian-polity.html" class="category">भारतीय राजव्यवस्था</a>
+            <a href="indian-history.html" class="category">भारतीय इतिहास</a>
+            <a href="geography.html" class="category">भूगोल</a>
+            <a href="science-tech.html" class="category">विज्ञान और प्रौद्योगिकी</a>
+            <a href="economics.html" class="category">अर्थशास्त्र</a>
+            <a href="environment-ecology.html" class="category">पर्यावरण और पारिस्थितिकी</a>
+            <a href="data-interpretation.html" class="category">डेटा व्याख्या</a>
+            <a href="essay-writing.html" class="category">निबंध लेखन</a>
+            <a href="interview-preparation.html" class="category">साक्षात्कार तैयारी</a>
+            <a href="time-management.html" class="category">समय प्रबंधन</a>
+            <a href="study-tips.html" class="category">अध्ययन के सुझाव</a>
+            <a href="question-bank.html" class="category">प्रश्न बैंक</a>
+            <a href="mock-tests.html" class="category">मॉक टेस्ट</a>
+            <a href="exam-strategy.html" class="category">परीक्षा की रणनीति</a>
+            <a href="revision-tips.html" class="category">पुनरावलोकन सुझाव</a>
+        </div>
+    </div>
+    <footer>
+        © 2025 <a href="#">अध्ययन वेबसाइट</a>. सभी अधिकार सुरक्षित।
+    </footer>
+</body>
+</html>
