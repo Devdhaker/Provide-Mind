@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Affairs</title>
+    <style>
+        /* सामान्य बॉडी स्टाइल */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #121212, #1e1e1e);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* कंटेनर स्टाइल */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #f39c12;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: #f39c12;
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #bdc3c7;
+            margin-bottom: 30px;
+        }
+
+        /* लिस्ट स्टाइल */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 15px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1abc9c;
+            font-size: 1.3rem;
+            padding: 12px 20px;
+            display: inline-block;
+            border: 2px solid #1abc9c;
+            border-radius: 50px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        a:hover {
+            background: #1abc9c;
+            color: #121212;
+            transform: scale(1.05);
+        }
+
+        /* फुटर */
+        footer {
+            margin-top: 40px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Current Affairs</h1>
+        <p>यहाँ पर विभिन्न टॉपिक्स की सूची दी गई है। किसी भी टॉपिक पर क्लिक करें:</p>
+        <ul>
+            <li><a href="national.html">राष्ट्रीय समाचार (National)</a></li>
+            <li><a href="international.html">अंतर्राष्ट्रीय समाचार (International)</a></li>
+            <li><a href="sports.html">खेल समाचार (Sports)</a></li>
+            <li><a href="technology.html">प्रौद्योगिकी (Technology)</a></li>
+            <li><a href="economy.html">आर्थिक समाचार (Economy)</a></li>
+        </ul>
+    </div>
+    <footer>
+        © 2025 Current Affairs Portal. All Rights Reserved.
+    </footer>
+</body>
+</html>
