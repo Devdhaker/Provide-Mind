@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Geography Study Material</title>
+    <style>
+        /* बॉडी */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1f1f1f, #2c3e50); /* प्रीमियम ग्रेडिएंट बैकग्राउंड */
+            color: #f5f5f5;
+            line-height: 1.8;
+        }
+
+        /* मुख्य कंटेनर */
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1); /* हल्का पारदर्शी */
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* शीर्षक */
+        h1 {
+            text-align: center;
+            color: #f7c74c; /* गोल्डन रंग */
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        h2 {
+            text-align: center;
+            color: #d1d1d1;
+            font-size: 1.5rem;
+            margin-bottom: 50px;
+        }
+
+        /* कैटेगरी */
+        .category-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+        }
+
+        .category {
+            background: linear-gradient(145deg, #3b3b3b, #1e1e1e); /* डार्क शेड्स */
+            border: 2px solid #f7c74c; /* गोल्डन बॉर्डर */
+            border-radius: 12px;
+            width: calc(33% - 20px);
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+            background: linear-gradient(145deg, #444444, #222222); /* हल्का डार्क */
+        }
+
+        .category button {
+            background: #f7c74c; /* गोल्डन रंग */
+            color: #1e1e1e;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .category button:hover {
+            background: #ffd95c; /* हल्का गोल्डन */
+            color: #111111;
+        }
+
+        /* फुटर */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.2rem;
+            color: #f7c74c;
+            font-weight: bold;
+        }
+
+        /* रेस्पॉन्सिव डिज़ाइन */
+        @media (max-width: 768px) {
+            .category {
+                width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .category {
+                width: calc(100% - 20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Premium Geography Hub</h1>
+        <h2>Explore Topics with Elegance</h2>
+        <ul class="category-list">
+            <li class="category">
+                <a href="physical-geography.html"><button>Physical Geography</button></a>
+            </li>
+            <li class="category">
+                <a href="human-geography.html"><button>Human Geography</button></a>
+            </li>
+            <li class="category">
+                <a href="economic-geography.html"><button>Economic Geography</button></a>
+            </li>
+            <li class="category">
+                <a href="climatology.html"><button>Climatology</button></a>
+            </li>
+            <li class="category">
+                <a href="environmental-geography.html"><button>Environmental Geography</button></a>
+            </li>
+        </ul>
+    </div>
+    <footer>
+        © 2025 Premium Geography Hub | Excellence in Learning.
+    </footer>
+</body>
+</html>
