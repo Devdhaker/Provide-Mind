@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>हिंदी भाषा के विषय</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .topic {
+            background-color: #3498db;
+            color: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .topic:hover {
+            background-color: #2980b9;
+        }
+
+        .description {
+            padding: 15px;
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>हिंदी भाषा के विषय</h1>
+
+        <div class="topic" onclick="toggleDescription('desc1')">भाषा के प्रकार</div>
+        <div class="description" id="desc1">
+            <p>हिंदी को विभिन्न प्रकारों में बांटा जा सकता है जैसे मानक हिंदी, बोलचाल की हिंदी और आधुनिक हिंदी। मानक हिंदी का उपयोग औपचारिक और साहित्यिक कार्यों में होता है।</p>
+        </div>
+
+        <div class="topic" onclick="toggleDescription('desc2')">साहित्यिक शैली</div>
+        <div class="description" id="desc2">
+            <p>हिंदी साहित्य में गद्य और पद्य की शैलियाँ शामिल हैं। गद्य में कथा साहित्य, निबंध, और नाटक आते हैं, जबकि पद्य में कविता, गीत, और महाकाव्य शामिल होते हैं।</p>
+        </div>
+
+        <div class="topic" onclick="toggleDescription('desc3')">भाषाई संरचना</div>
+        <div class="description" id="desc3">
+            <p>हिंदी की भाषाई संरचना में स्वर, व्यंजन, शब्द रचना और वाक्य रचना शामिल है। इसमें तत्सम, तद्भव, देशज और विदेशी शब्दों का समावेश होता है।</p>
+        </div>
+
+        <div class="topic" onclick="toggleDescription('desc4')">क्षेत्रीय विविधताएँ</div>
+        <div class="description" id="desc4">
+            <p>हिंदी भाषा में विभिन्न क्षेत्रीय विविधताएँ पाई जाती हैं जैसे अवधी, ब्रजभाषा, भोजपुरी, और राजस्थानी। ये क्षेत्रीय भाषाएँ हिंदी के विभिन्न रूप हैं।</p>
+        </div>
+
+        <div class="topic" onclick="toggleDescription('desc5')">लिपि</div>
+        <div class="description" id="desc5">
+            <p>हिंदी की प्रमुख लिपि देवनागरी है, हालांकि रोमन लिपि का भी कुछ स्थानों पर उपयोग किया जाता है।</p>
+        </div>
+
+        <div class="topic" onclick="toggleDescription('desc6')">उपयोग</div>
+        <div class="description" id="desc6">
+            <p>हिंदी का उपयोग शैक्षिक, सरकारी, और सामाजिक कार्यों में किया जाता है। यह हिंदी के विविध रूपों का प्रतिबिंब है, जैसे कि शैक्षणिक हिंदी, सरकारी हिंदी, और तकनीकी हिंदी।</p>
+        </div>
+
+        <div class="topic" onclick="toggleDescription('desc7')">इतिहास</div>
+        <div class="description" id="desc7">
+            <p>हिंदी का इतिहास प्राचीन हिंदी, मध्यकालीन हिंदी और आधुनिक हिंदी के रूप में बाँटा जा सकता है। हिंदी भाषा का विकास संस्कृत, अपभ्रंश, और प्राकृत से हुआ है।</p>
+        </div>
+
+        <div class="topic" onclick="toggleDescription('desc8')">लोकप्रियता और उपयोगिता</div>
+        <div class="description" id="desc8">
+            <p>हिंदी भाषा भारत में एक राष्ट्रीय भाषा के रूप में महत्वपूर्ण भूमिका निभाती है। यह न केवल भारत में, बल्कि विदेशों में भी भारतीय समुदायों के बीच बोली जाती है।</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleDescription(id) {
+            var desc = document.getElementById(id);
+            if (desc.style.display === "block") {
+                desc.style.display = "none";
+            } else {
+                desc.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
