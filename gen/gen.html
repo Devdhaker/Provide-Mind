@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>सामान्य ज्ञान</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            color: #ff9800;
+        }
+
+        .question {
+            background-color: #333;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .answer {
+            background-color: #444;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .question h3 {
+            margin: 0;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            background-color: #ff9800;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>सामान्य ज्ञान प्रश्नोत्तरी</h1>
+
+    <div id="questions-container"></div>
+
+    <div class="navigation">
+        <button class="button" id="prevButton" onclick="changePage(-1)">पिछला</button>
+        <button class="button" id="nextButton" onclick="changePage(1)">अगला</button>
+    </div>
+
+    <script src="gen.js"></script>
+</body>
+</html>
