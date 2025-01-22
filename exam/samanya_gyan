@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions and Answers</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #1e3c72, #2a5298);
+            color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Container */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.1);
+            width: 100%;
+            height: 100%;
+            max-width: 1200px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #ffcc00;
+            margin: 0;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        #question-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* Question Box */
+        .question-item {
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 10px 0;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .question-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .question-item p strong {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.3rem;
+            color: #ffd700;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .question-item p {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #ffffff;
+            text-align: justify;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            background: #ffcc00;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-button:hover {
+            background: #ffc107;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-button:disabled {
+            background: #ccc;
+            color: #666;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Theoretical Questions</h1>
+        </header>
+        <main id="question-list">
+            <!-- Questions will be dynamically added here -->
+        </main>
+        <footer>
+            <button id="prev" class="nav-button">Previous</button>
+            <button id="next" class="nav-button">Next</button>
+        </footer>
+        <script>   // गणित के सवाल और उनके उत्तर
+        const questions = [
+        { 
+    question: "सवाल 1: मानव शरीर में सबसे बड़ी हड्डी कौन सी है?",
+    answer: "उत्तर: फीमर (जांघ की हड्डी)।"
+},
+{ 
+    question: "सवाल 2: भारत का संविधान कब लागू हुआ था?",
+    answer: "उत्तर: 26 जनवरी 1950।"
+},
+{ 
+    question: "सवाल 3: पृथ्वी के सबसे निकट का ग्रह कौन सा है?",
+    answer: "उत्तर: शुक्र।"
+},
+{ 
+    question: "सवाल 4: विश्व का सबसे ऊँचा पर्वत कौन सा है?",
+    answer: "उत्तर: माउंट एवरेस्ट।"
+},
+{ 
+    question: "सवाल 5: ‘पंचतंत्र’ नामक ग्रंथ किसने लिखा था?",
+    answer: "उत्तर: विष्णु शर्मा।"
+},
+{ 
+    question: "सवाल 6: भारतीय संविधान में कुल कितने अनुच्छेद हैं?",
+    answer: "उत्तर: 448 अनुच्छेद।"
+},
+{ 
+    question: "सवाल 7: नालंदा विश्वविद्यालय को किसने नष्ट किया था?",
+    answer: "उत्तर: बख्तियार खिलजी।"
+},
+{ 
+    question: "सवाल 8: DNA की खोज किसने की थी?",
+    answer: "उत्तर: जेम्स वॉटसन और फ्रांसिस क्रिक।"
+},
+{ 
+    question: "सवाल 9: प्रोटॉन की खोज किसने की थी?",
+    answer: "उत्तर: अर्नेस्ट रदरफोर्ड।"
+},
+{ 
+    question: "सवाल 10: महात्मा गांधी ने 'सत्याग्रह' का पहला प्रयोग कहाँ किया था?",
+    answer: "उत्तर: दक्षिण अफ्रीका।"
+},
+{ 
+    question: "सवाल 11: भारत में पहली रेलगाड़ी कब चली थी?",
+    answer: "उत्तर: 16 अप्रैल 1853।"
+},
+{ 
+    question: "सवाल 12: ‘इंकलाब जिंदाबाद’ का नारा किसने दिया था?",
+    answer: "उत्तर: भगत सिंह।"
+},
+{ 
+    question: "सवाल 13: विश्व का सबसे बड़ा रेगिस्तान कौन सा है?",
+    answer: "उत्तर: सहारा रेगिस्तान।"
+},
+{ 
+    question: "सवाल 14: प्रथम एशियाई नोबेल पुरस्कार विजेता कौन थे?",
+    answer: "उत्तर: रवींद्रनाथ टैगोर।"
+},
+{ 
+    question: "सवाल 15: भारत का सबसे बड़ा राज्य क्षेत्रफल के अनुसार कौन सा है?",
+    answer: "उत्तर: राजस्थान।"
+},
+{ 
+    question: "सवाल 16: मनुष्य का सामान्य रक्तचाप कितना होता है?",
+    answer: "उत्तर: 120/80 mmHg।"
+},
+{ 
+    question: "सवाल 17: सौरमंडल का सबसे बड़ा ग्रह कौन सा है?",
+    answer: "उत्तर: बृहस्पति।"
+},
+{ 
+    question: "सवाल 18: ओलंपिक खेलों का आयोजन कितने वर्षों के अंतराल पर होता है?",
+    answer: "उत्तर: 4 वर्षों।"
+},
+{ 
+    question: "सवाल 19: बिजली का प्रतिरोध किसमें मापा जाता है?",
+    answer: "उत्तर: ओम।"
+},
+{ 
+    question: "सवाल 20: एशिया का सबसे छोटा देश कौन सा है?",
+    answer: "उत्तर: मालदीव।"
+},
+{ 
+    question: "सवाल 21: भारत में पहला कंप्यूटर कब आया था?",
+    answer: "उत्तर: 1955।"
+},
+{ 
+    question: "सवाल 22: संयुक्त राष्ट्र संघ (UN) की स्थापना कब हुई थी?",
+    answer: "उत्तर: 24 अक्टूबर 1945।"
+},
+{ 
+    question: "सवाल 23: मानव शरीर का सामान्य तापमान कितना होता है?",
+    answer: "उत्तर: 98.6°F (37°C)।"
+},
+{ 
+    question: "सवाल 24: भारत में योजना आयोग की स्थापना कब हुई थी?",
+    answer: "उत्तर: 1950।"
+},
+{ 
+    question: "सवाल 25: विटामिन D का मुख्य स्रोत क्या है?",
+    answer: "उत्तर: सूर्य का प्रकाश।"
+},
+{ 
+    question: "सवाल 26: भारत के किस शहर को 'गुलाबी नगर' कहा जाता है?",
+    answer: "उत्तर: जयपुर।"
+},
+{ 
+    question: "सवाल 27: समुद्र के पानी का मुख्य खारा पदार्थ कौन सा है?",
+    answer: "उत्तर: सोडियम क्लोराइड।"
+},
+{ 
+    question: "सवाल 28: अमीबा कैसे भोजन करता है?",
+    answer: "उत्तर: झूठे पैर (पseudopodia) द्वारा।"
+},
+{ 
+    question: "सवाल 29: पृथ्वी पर सबसे गहरा महासागर कौन सा है?",
+    answer: "उत्तर: प्रशांत महासागर।"
+},
+{ 
+    question: "सवाल 30: भारतीय राष्ट्रीय कांग्रेस का गठन कब हुआ था?",
+    answer: "उत्तर: 1885।"
+},
+{ 
+    question: "सवाल 31: दुनिया का सबसे बड़ा द्वीप कौन सा है?",
+    answer: "उत्तर: ग्रीनलैंड।"
+},
+{ 
+    question: "सवाल 32: भारत का पहला परमाणु परीक्षण कब और कहाँ हुआ था?",
+    answer: "उत्तर: 1974, पोखरण।"
+},
+{ 
+    question: "सवाल 33: इंसुलिन किसके उपचार के लिए उपयोग किया जाता है?",
+    answer: "उत्तर: मधुमेह।"
+},
+{ 
+    question: "सवाल 34: भारतीय संविधान का कौन सा अनुच्छेद ‘अल्पसंख्यकों की रक्षा’ से संबंधित है?",
+    answer: "उत्तर: अनुच्छेद 29 और 30।"
+},
+{ 
+    question: "सवाल 35: भारत में सबसे पहली जनगणना कब हुई थी?",
+    answer: "उत्तर: 1872।"
+},
+{ 
+    question: "सवाल 36: मानव हृदय में कुल कितने कक्ष होते हैं?",
+    answer: "उत्तर: चार।"
+},
+{ 
+    question: "सवाल 37: ओजोन परत मुख्य रूप से किस गैस से बनी होती है?",
+    answer: "उत्तर: ओजोन (O3)।"
+},
+{ 
+    question: "सवाल 38: भारत का पहला उपग्रह कौन सा था?",
+    answer: "उत्तर: आर्यभट्ट।"
+},
+{ 
+    question: "सवाल 39: पृथ्वी पर सबसे बड़ा जानवर कौन सा है?",
+    answer: "उत्तर: नीली व्हेल।"
+},
+{ 
+    question: "सवाल 40: महात्मा गांधी ने पहला सत्याग्रह भारत में कहाँ किया?",
+    answer: "उत्तर: चंपारण, बिहार।"
+},
+{ 
+    question: "सवाल 41: कोशिका का पावरहाउस किसे कहा जाता है?",
+    answer: "उत्तर: माइटोकॉन्ड्रिया।"
+},
+{ 
+    question: "सवाल 42: सबसे पुराना वेद कौन सा है?",
+    answer: "उत्तर: ऋग्वेद।"
+},
+{ 
+    question: "सवाल 43: लाल रक्त कोशिकाओं का निर्माण शरीर के किस भाग में होता है?",
+    answer: "उत्तर: अस्थि मज्जा।"
+},
+{ 
+    question: "सवाल 44: 1857 के विद्रोह का नेतृत्व किसने किया?",
+    answer: "उत्तर: बहादुर शाह जफर।"
+},
+{ 
+    question: "सवाल 45: भारत में सबसे ऊँचा जलप्रपात कौन सा है?",
+    answer: "उत्तर: जोग जलप्रपात।"
+},
+{ 
+    question: "सवाल 46: स्वेज नहर किन दो समुद्रों को जोड़ती है?",
+    answer: "उत्तर: भूमध्य सागर और लाल सागर।"
+},
+{ 
+    question: "सवाल 47: सबसे तेज दौड़ने वाला जानवर कौन सा है?",
+    answer: "उत्तर: चीता।"
+},
+{ 
+    question: "सवाल 48: संयुक्त राष्ट्र संघ का मुख्यालय कहाँ है?",
+    answer: "उत्तर: न्यूयॉर्क, अमेरिका।"
+},
+{ 
+    question: "सवाल 49: भारत की पहली महिला प्रधानमंत्री कौन थीं?",
+    answer: "उत्तर: इंदिरा गांधी।"
+},
+{ 
+    question: "सवाल 50: किस भारतीय राज्य को 'भारत का मसाला बगीचा' कहा जाता है?",
+    answer: "उत्तर: केरल।"
+},
+{ 
+    question: "सवाल 51: किस भारतीय राज्य को 'नकली भारत' कहा जाता है?",
+    answer: "उत्तर: उत्तर प्रदेश।"
+},
+{ 
+    question: "सवाल 52: ताज महल किस मुग़ल सम्राट ने बनवाया था?",
+    answer: "उत्तर: शाहजहाँ।"
+},
+{ 
+    question: "सवाल 53: एसी का पूर्ण रूप क्या है?",
+    answer: "उत्तर: एयर कंडीशनर।"
+},
+{ 
+    question: "सवाल 54: विश्व का सबसे बड़ा महाद्वीप कौन सा है?",
+    answer: "उत्तर: एशिया।"
+},
+{ 
+    question: "सवाल 55: पृथ्वी पर सबसे अधिक कौन सा गैस पाया जाता है?",
+    answer: "उत्तर: नाइट्रोजन।"
+},
+{ 
+    question: "सवाल 56: भारतीय राष्ट्रीय ध्वज में कितने रंग होते हैं?",
+    answer: "उत्तर: तीन।"
+},
+{ 
+    question: "सवाल 57: प्रकाश का सबसे तेज़ रूप कौन सा है?",
+    answer: "उत्तर: गामा किरणें।"
+},
+{ 
+    question: "सवाल 58: क्या पदार्थों का रंग उनके तापमान पर निर्भर करता है?",
+    answer: "उत्तर: हाँ।"
+},
+{ 
+    question: "सवाल 59: भारत में राष्ट्रीय विज्ञान दिवस कब मनाया जाता है?",
+    answer: "उत्तर: 28 फरवरी।"
+},
+{ 
+    question: "सवाल 60: महात्मा गांधी के पिता का नाम क्या था?",
+    answer: "उत्तर: करमचंद गांधी।"
+},
+{ 
+    question: "सवाल 61: चंद्रमा पर किस मिशन को भारत ने भेजा था?",
+    answer: "उत्तर: चंद्रयान-1।"
+},
+{ 
+    question: "सवाल 62: पानी का रासायनिक सूत्र क्या है?",
+    answer: "उत्तर: H2O।"
+},
+{ 
+    question: "सवाल 63: भारत का सबसे बड़ा राज्य कौन सा है?",
+    answer: "उत्तर: राजस्थान।"
+},
+{ 
+    question: "सवाल 64: शहद का उत्पादन कौन करता है?",
+    answer: "उत्तर: मधुमक्खियाँ।"
+},
+{ 
+    question: "सवाल 65: त्वरित गति का यांत्रिक माप क्या है?",
+    answer: "उत्तर: वेग।"
+},
+{ 
+    question: "सवाल 66: भारतीय फिल्म उद्योग का प्रमुख केंद्र कहाँ है?",
+    answer: "उत्तर: मुंबई।"
+},
+{ 
+    question: "सवाल 67: पानी का शुद्ध रूप किसके द्वारा प्राप्त किया जाता है?",
+    answer: "उत्तर: आसवन द्वारा।"
+},
+{ 
+    question: "सवाल 68: पृथ्वी के सबसे निचले बिंदु का नाम क्या है?",
+    answer: "उत्तर: मृत सागर।"
+},
+{ 
+    question: "सवाल 69: ताजमहल किस नदी के किनारे स्थित है?",
+    answer: "उत्तर: यमुना नदी।"
+},
+{ 
+    question: "सवाल 70: पृथ्वी के सबसे ऊँचे पर्वत शिखर का नाम क्या है?",
+    answer: "उत्तर: माउंट एवरेस्ट।"
+},
+{ 
+    question: "सवाल 71: लोहा किसका प्रमुख घटक है?",
+    answer: "उत्तर: धातु।"
+},
+{ 
+    question: "सवाल 72: जलवायु में बदलाव का क्या कारण है?",
+    answer: "उत्तर: मानवीय गतिविधियाँ, वनों की कटाई, औद्योगिकीकरण।"
+},
+{ 
+    question: "सवाल 73: भारत के प्रधानमंत्री का कार्यकाल कितने वर्षों का होता है?",
+    answer: "उत्तर: 5 वर्ष।"
+},
+{ 
+    question: "सवाल 74: कौन सा ग्रह 'लाल ग्रह' के नाम से जाना जाता है?",
+    answer: "उत्तर: मंगल ग्रह।"
+},
+{ 
+    question: "सवाल 75: समुद्र का पानी किस प्रकार का होता है?",
+    answer: "उत्तर: खारा।"
+},
+{ 
+    question: "सवाल 76: सबसे बड़ी समुद्री मछली कौन सी है?",
+    answer: "उत्तर: व्हेल शार्क।"
+},
+{ 
+    question: "सवाल 77: सबसे बड़ा फूल कौन सा है?",
+    answer: "उत्तर: रैफ्लेशिया।"
+},
+{ 
+    question: "सवाल 78: 2024 में भारत में कौन सा आम चुनाव होगा?",
+    answer: "उत्तर: लोकसभा चुनाव।"
+},
+{ 
+    question: "सवाल 79: 'पद्म विभूषण' किसके द्वारा प्रदान किया जाता है?",
+    answer: "उत्तर: भारत सरकार।"
+},
+{ 
+    question: "सवाल 80: मानव शरीर में सबसे बड़ी हड्डी कौन सी है?",
+    answer: "उत्तर: फीमर हड्डी (जांघ की हड्डी)।"
+},
+{ 
+    question: "सवाल 81: किसी भी गैस के अणुओं की गति किसके द्वारा प्रभावित होती है?",
+    answer: "उत्तर: तापमान।"
+},
+{ 
+    question: "सवाल 82: मौसम विज्ञान के संस्थापक कौन थे?",
+    answer: "उत्तर: स्टीफन हॉकिंग।"
+},
+{ 
+    question: "सवाल 83: सौरमंडल का सबसे छोटा ग्रह कौन सा है?",
+    answer: "उत्तर: बुध।"
+},
+{ 
+    question: "सवाल 84: जलवायु परिवर्तन पर ध्यान देने वाला अंतरराष्ट्रीय समझौता क्या है?",
+    answer: "उत्तर: पेरिस समझौता।"
+},
+{ 
+    question: "सवाल 85: मानव शरीर में सबसे बड़ी ग्रंथि कौन सी है?",
+    answer: "उत्तर: यकृत (लीवर)।"
+},
+{ 
+    question: "सवाल 86: भारतीय स्वतंत्रता संग्राम की शुरुआत किस घटना से मानी जाती है?",
+    answer: "उत्तर: 1857 के विद्रोह से।"
+},
+{ 
+    question: "सवाल 87: वेग और त्वरण का यांत्रिक माप क्या है?",
+    answer: "उत्तर: गति और त्वरण।"
+},
+{ 
+    question: "सवाल 88: भारत का सबसे पुराना राष्ट्रीय उद्यान कौन सा है?",
+    answer: "उत्तर: काजीरंगा राष्ट्रीय उद्यान।"
+},
+{ 
+    question: "सवाल 89: आकाशगंगा का केंद्र कहाँ स्थित है?",
+    answer: "उत्तर: मक्षिका (सुग्गा) के पास।"
+},
+{ 
+    question: "सवाल 90: सबसे लंबी नदी कौन सी है?",
+    answer: "उत्तर: नील नदी।"
+},
+{ 
+    question: "सवाल 91: भारत के प्रधानमंत्री का निवास स्थल क्या है?",
+    answer: "उत्तर: 7, लोक कल्याण मार्ग, दिल्ली।"
+},
+{ 
+    question: "सवाल 92: समुद्र में तैरने वाले जहाजों को क्या कहते हैं?",
+    answer: "उत्तर: पोत।"
+},
+{ 
+    question: "सवाल 93: कौन सा पशु झपकी लेते समय अपनी आँखें बंद नहीं करता है?",
+    answer: "उत्तर: शार्क।"
+},
+{ 
+    question: "सवाल 94: 'सारस्वत वाणी' का अवतार किससे जुड़ा है?",
+    answer: "उत्तर: सरस्वती देवी से।"
+},
+{ 
+    question: "सवाल 95: जीवाणु किस आकार के होते हैं?",
+    answer: "उत्तर: सूक्ष्म और आकार में छोटे।"
+},
+{ 
+    question: "सवाल 96: ग्रीन हाउस प्रभाव किससे संबंधित है?",
+    answer: "उत्तर: जलवायु परिवर्तन।"
+},
+{ 
+    question: "सवाल 97: भारत का राष्ट्रीय खेल क्या है?",
+    answer: "उत्तर: हॉकी।"
+},
+{ 
+    question: "सवाल 98: भारत में स्वतंत्रता संग्राम की पहली महिला सेनानी कौन थीं?",
+    answer: "उत्तर: रानी लक्ष्मीबाई।"
+},
+{ 
+    question: "सवाल 99: किस ग्रह को 'सतह का लाल रंग' कहा जाता है?",
+    answer: "उत्तर: मंगल।"
+},
+{ 
+    question: "सवाल 100: राष्ट्रीय शिक्षा नीति 2020 को कब मंजूरी दी गई थी?",
+    answer: "उत्तर: 29 जुलाई 2020।"
+},
+
+
+
+
+       // Add more questions here...
+        ];
+      let currentPage = 0;
+      const questionsPerPage =20 ; // Display 5 questions per page
+      
+      const questionListElement = document.getElementById("question-list");
+      const prevButton = document.getElementById("prev");
+      const nextButton = document.getElementById("next");
+      
+      // सवालों को पेज पर लोड करना
+      function loadQuestions(page) {
+          questionListElement.innerHTML = ""; // वर्तमान सवाल साफ करें
+          const start = page * questionsPerPage; // पेज की शुरुआत
+          const end = Math.min(start + questionsPerPage, questions.length); // पेज का अंत
+      
+          for (let i = start; i < end; i++) {
+              const questionItem = document.createElement("div");
+              questionItem.className = "question-item";
+              questionItem.innerHTML = `
+                  <p><strong>${questions[i].question}</strong></p>
+                  <p>${questions[i].answer}</p>
+              `;
+              questionListElement.appendChild(questionItem);
+          }
+      
+          // "Previous" और "Next" बटन को सक्षम/अक्षम करना
+          prevButton.disabled = page === 0;
+          nextButton.disabled = end === questions.length;
+      }
+      
+      // "Previous" बटन का इवेंट लिसनर
+      prevButton.addEventListener("click", () => {
+          if (currentPage > 0) {
+              currentPage--;
+              loadQuestions(currentPage);
+          }
+      });
+      
+      // "Next" बटन का इवेंट लिसनर
+      nextButton.addEventListener("click", () => {
+          if ((currentPage + 1) * questionsPerPage < questions.length) {
+              currentPage++;
+              loadQuestions(currentPage);
+          }
+      });
+      
+      // पहली बार सवाल लोड करें
+      loadQuestions(currentPage)</script>
+    </div>
+</body>
+</html>
