@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions and Answers</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #1e3c72, #2a5298);
+            color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Container */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.1);
+            width: 100%;
+            height: 100%;
+            max-width: 1200px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #ffcc00;
+            margin: 0;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        #question-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* Question Box */
+        .question-item {
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 10px 0;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .question-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .question-item p strong {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.3rem;
+            color: #ffd700;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .question-item p {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #ffffff;
+            text-align: justify;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            background: #ffcc00;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-button:hover {
+            background: #ffc107;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-button:disabled {
+            background: #ccc;
+            color: #666;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Theoretical Questions</h1>
+        </header>
+        <main id="question-list">
+            <!-- Questions will be dynamically added here -->
+        </main>
+        <footer>
+            <button id="prev" class="nav-button">Previous</button>
+            <button id="next" class="nav-button">Next</button>
+        </footer>
+        <script>   // गणित के सवाल और उनके उत्तर
+        const questions = [
+          {
+              question: "सवाल 1: यदि एक ट्रेन 60 किमी/घंटा की गति से चलती है, तो वह 5 घंटे में कितनी दूरी तय करेगी?",
+              answer: "उत्तर: ट्रेन 5 घंटे में 300 किमी की दूरी तय करेगी। (दूरी = गति × समय)"
+          },
+          {
+              question: "सवाल 2: यदि किसी संख्या का 25% 50 है, तो संख्या क्या है?",
+              answer: "उत्तर: संख्या 200 है। (संख्या = 50 × 100 / 25)"
+          },
+          {
+              question: "सवाल 3: दो संख्याओं का योग 100 है। यदि पहली संख्या 40 है, तो दूसरी संख्या क्या होगी?",
+              answer: "उत्तर: दूसरी संख्या 60 होगी। (दूसरी संख्या = 100 - 40)"
+          },
+          {
+              question: "सवाल 4: 12 और 16 का LCM (लघुत्तम समापवर्त्य) क्या है?",
+              answer: "उत्तर: 12 और 16 का LCM 48 है।"
+          },
+          {
+              question: "सवाल 5: एक वर्ग की भुजा 5 सेमी है। इसका क्षेत्रफल क्या होगा?",
+              answer: "उत्तर: वर्ग का क्षेत्रफल 25 वर्ग सेमी होगा। (क्षेत्रफल = भुजा²)"
+          },
+          {
+              question: "सवाल 6: यदि किसी आयत की लंबाई 10 सेमी और चौड़ाई 5 सेमी है, तो उसका परिमाप क्या होगा?",
+              answer: "उत्तर: परिमाप 30 सेमी होगा। (परिमाप = 2 × (लंबाई + चौड़ाई))"
+          },
+          {
+              question: "सवाल 7: 3 का घन (cube) क्या है?",
+              answer: "उत्तर: 3 का घन 27 है। (3³ = 3 × 3 × 3)"
+          },
+          {
+              question: "सवाल 8: 144 का वर्गमूल (square root) क्या है?",
+              answer: "उत्तर: 144 का वर्गमूल 12 है। (√144 = 12)"
+          },
+          {
+              question: "सवाल 9: 1 से 10 तक की सभी प्राकृतिक संख्याओं का योग क्या है?",
+              answer: "उत्तर: योग 55 है। (योग = n(n+1)/2 = 10(10+1)/2)"
+          },
+          {
+              question: "सवाल 10: 2, 4, 6, 8 का औसत क्या है?",
+              answer: "उत्तर: औसत 5 है। (औसत = (2+4+6+8)/4)"
+          },
+          {
+              question: "सवाल 11: यदि 3x = 12 हो, तो x का मान क्या होगा?",
+              answer: "उत्तर: x का मान 4 होगा। (x = 12/3)"
+          },
+          {
+              question: "सवाल 12: 30 का 10% क्या होगा?",
+              answer: "उत्तर: 30 का 10% = 3 होगा।"
+          },
+          {
+              question: "सवाल 13: किसी संख्या का 50% और 25% का योग 75 है। वह संख्या क्या है?",
+              answer: "उत्तर: वह संख्या 100 है।"
+          },
+          {
+              question: "सवाल 14: 10 मीटर लंबा एक पाइप 2 मीटर के टुकड़ों में कितने भागों में काटा जा सकता है?",
+              answer: "उत्तर: पाइप 5 भागों में काटा जा सकता है।"
+          },
+          {
+              question: "सवाल 15: यदि किसी वस्तु की कीमत 500 रुपये है और उस पर 18% GST जोड़ा जाता है, तो अंतिम कीमत क्या होगी?",
+              answer: "उत्तर: अंतिम कीमत 590 रुपये होगी।"
+          },
+          {
+              question: "सवाल 16: दो संख्याओं का गुणनफल 36 है और उनका HCF 6 है। उनका LCM क्या होगा?",
+              answer: "उत्तर: उनका LCM 6 है। (HCF × LCM = उत्पाद)"
+          },
+          {
+              question: "सवाल 17: यदि कोई व्यक्ति 12 किमी/घंटा की गति से 2 घंटे तक चलता है, तो वह कितनी दूरी तय करेगा?",
+              answer: "उत्तर: व्यक्ति 24 किमी तय करेगा।"
+          },
+          {
+              question: "सवाल 18: एक घन का भंडारण 27 घन मीटर है। उसकी भुजा की लंबाई क्या होगी?",
+              answer: "उत्तर: भुजा की लंबाई 3 मीटर होगी।"
+          },
+          {
+              question: "सवाल 19: यदि 5x = 20, तो x का मान क्या होगा?",
+              answer: "उत्तर: x का मान 4 होगा।"
+          },
+          {
+              question: "सवाल 20: किसी संख्या का 1/3 और 1/4 का योग 7 है। संख्या क्या है?",
+              answer: "उत्तर: संख्या 84 है।"
+          },
+          {
+              question: "सवाल 21: किसी त्रिभुज का आधार 6 सेमी और ऊंचाई 4 सेमी है। इसका क्षेत्रफल क्या होगा?",
+              answer: "उत्तर: त्रिभुज का क्षेत्रफल 12 वर्ग सेमी होगा।"
+          },
+          {
+              question: "सवाल 22: दो संख्याओं का अनुपात 3:5 है। यदि उनका योग 40 है, तो बड़ी संख्या क्या होगी?",
+              answer: "उत्तर: बड़ी संख्या 25 होगी।"
+          },
+          {
+              question: "सवाल 23: 1 से 5 तक के सभी विषम संख्याओं का योग क्या है?",
+              answer: "उत्तर: योग 9 है।"
+          },
+          {
+              question: "सवाल 24: यदि किसी घड़ी में 1 घंटे में 30° का कोण बनता है, तो 3 घंटे में कितना कोण बनेगा?",
+              answer: "उत्तर: 90° का कोण बनेगा।"
+          },
+          {
+              question: "सवाल 25: किसी संख्या का वर्ग 225 है। वह संख्या क्या है?",
+              answer: "उत्तर: वह संख्या 15 है।"
+          },
+          {
+              question: "सवाल 26: दो अंकों वाली सबसे बड़ी संख्या कौन सी है?",
+              answer: "उत्तर: 99।"
+          },
+          {
+              question: "सवाल 27: यदि एक सर्कल की त्रिज्या 7 सेमी है, तो उसका व्यास क्या होगा?",
+              answer: "उत्तर: व्यास 14 सेमी होगा।"
+          },
+          {
+              question: "सवाल 28: 8 का 4 से गुणा करने पर क्या आएगा?",
+              answer: "उत्तर: 32।"
+          },
+          {
+              question: "सवाल 29: किसी संख्या का 75% 150 है। संख्या क्या है?",
+              answer: "उत्तर: संख्या 200 है।"
+          },
+          {
+              question: "सवाल 30: एक आदमी 3 घंटे में 15 किमी चलता है। उसकी गति क्या है?",
+              answer: "उत्तर: गति 5 किमी/घंटा होगी।"
+          },
+          {
+              question: "सवाल 31: यदि किसी वस्तु का मूल्य 800 रुपये है और उस पर 10% छूट दी जाती है, तो छूट के बाद मूल्य क्या होगा?",
+              answer: "उत्तर: छूट के बाद मूल्य 720 रुपये होगा। (800 - 10% × 800)"
+          },
+          {
+              question: "सवाल 32: दो कोण क्रमशः 60° और 30° हैं। तीसरे कोण का मान क्या होगा यदि वे एक त्रिभुज बनाते हैं?",
+              answer: "उत्तर: तीसरे कोण का मान 90° होगा। (त्रिभुज के कोणों का योग = 180°)"
+          },
+          {
+              question: "सवाल 33: यदि एक आयत का क्षेत्रफल 50 वर्ग सेमी है और इसकी लंबाई 10 सेमी है, तो इसकी चौड़ाई क्या होगी?",
+              answer: "उत्तर: चौड़ाई 5 सेमी होगी। (क्षेत्रफल = लंबाई × चौड़ाई)"
+          },
+          {
+              question: "सवाल 34: 72 और 120 का HCF क्या है?",
+              answer: "उत्तर: 72 और 120 का HCF 24 है।"
+          },
+          {
+              question: "सवाल 35: किसी संख्या का 40% 80 है। वह संख्या क्या है?",
+              answer: "उत्तर: वह संख्या 200 है। (80 × 100 / 40)"
+          },
+          {
+              question: "सवाल 36: एक सर्कल की त्रिज्या 14 सेमी है। उसका क्षेत्रफल क्या होगा?",
+              answer: "उत्तर: क्षेत्रफल 616 वर्ग सेमी होगा। (πr² = 22/7 × 14 × 14)"
+          },
+          {
+              question: "सवाल 37: यदि किसी संख्या का वर्ग 256 है, तो वह संख्या क्या होगी?",
+              answer: "उत्तर: वह संख्या 16 होगी। (√256 = 16)"
+          },
+          {
+              question: "सवाल 38: किसी घन के भंडारण का योग 125 घन सेमी है। उसकी भुजा क्या होगी?",
+              answer: "उत्तर: घन की भुजा 5 सेमी होगी। (भुजा = ∛भंडारण)"
+          },
+          {
+              question: "सवाल 39: 1 से 50 तक की सम संख्याओं का योग क्या है?",
+              answer: "उत्तर: योग 650 है। (n(n+1) = 25 × 26)"
+          },
+          {
+              question: "सवाल 40: यदि एक वस्तु का अंकित मूल्य 500 रुपये है और उस पर 12% GST जोड़ा जाता है, तो अंतिम मूल्य क्या होगा?",
+              answer: "उत्तर: अंतिम मूल्य 560 रुपये होगा।"
+          },
+          {
+              question: "सवाल 41: एक आदमी 8 किमी/घंटा की गति से 4 घंटे तक चलता है। उसने कितनी दूरी तय की?",
+              answer: "उत्तर: उसने 32 किमी तय की। (गति × समय)"
+          },
+          {
+              question: "सवाल 42: एक वृत्त का व्यास 28 सेमी है। उसका परिमाप क्या होगा?",
+              answer: "उत्तर: परिमाप 88 सेमी होगा। (π × व्यास)"
+          },
+          {
+              question: "सवाल 43: दो संख्याओं का गुणनफल 180 है और उनका HCF 6 है। उनका LCM क्या होगा?",
+              answer: "उत्तर: LCM 30 होगा। (HCF × LCM = उत्पाद)"
+          },
+          {
+              question: "सवाल 44: किसी संख्या का 60% 240 है। वह संख्या क्या है?",
+              answer: "उत्तर: संख्या 400 है।"
+          },
+          {
+              question: "सवाल 45: एक त्रिभुज के तीन कोण 60°, 60°, और 60° हैं। यह त्रिभुज किस प्रकार का है?",
+              answer: "उत्तर: यह एक समभुज त्रिभुज है।"
+          },
+          {
+              question: "सवाल 46: यदि किसी आयत की लंबाई और चौड़ाई को दोगुना किया जाए, तो उसका क्षेत्रफल कितना बढ़ जाएगा?",
+              answer: "उत्तर: क्षेत्रफल चार गुना बढ़ जाएगा।"
+          },
+          {
+              question: "सवाल 47: 7 का घन (cube) क्या है?",
+              answer: "उत्तर: 7 का घन 343 है।"
+          },
+          {
+              question: "सवाल 48: 1 से 10 तक के संख्याओं के वर्गों का योग क्या है?",
+              answer: "उत्तर: योग 385 है। (Σn² = n(n+1)(2n+1)/6)"
+          },
+          {
+              question: "सवाल 49: किसी वस्तु का मूल्य 1200 रुपये है। उस पर 20% की छूट देने के बाद मूल्य क्या होगा?",
+              answer: "उत्तर: छूट के बाद मूल्य 960 रुपये होगा।"
+          },
+          {
+              question: "सवाल 50: एक घड़ी में घंटे की सुई एक दिन में कितने कोण बनाती है?",
+              answer: "उत्तर: घंटे की सुई एक दिन में 720° का कोण बनाती है।"
+          },
+          // Add more questions here...
+      ];
+      
+      let currentPage = 0;
+      const questionsPerPage =20 ; // Display 5 questions per page
+      
+      const questionListElement = document.getElementById("question-list");
+      const prevButton = document.getElementById("prev");
+      const nextButton = document.getElementById("next");
+      
+      // सवालों को पेज पर लोड करना
+      function loadQuestions(page) {
+          questionListElement.innerHTML = ""; // वर्तमान सवाल साफ करें
+          const start = page * questionsPerPage; // पेज की शुरुआत
+          const end = Math.min(start + questionsPerPage, questions.length); // पेज का अंत
+      
+          for (let i = start; i < end; i++) {
+              const questionItem = document.createElement("div");
+              questionItem.className = "question-item";
+              questionItem.innerHTML = `
+                  <p><strong>${questions[i].question}</strong></p>
+                  <p>${questions[i].answer}</p>
+              `;
+              questionListElement.appendChild(questionItem);
+          }
+      
+          // "Previous" और "Next" बटन को सक्षम/अक्षम करना
+          prevButton.disabled = page === 0;
+          nextButton.disabled = end === questions.length;
+      }
+      
+      // "Previous" बटन का इवेंट लिसनर
+      prevButton.addEventListener("click", () => {
+          if (currentPage > 0) {
+              currentPage--;
+              loadQuestions(currentPage);
+          }
+      });
+      
+      // "Next" बटन का इवेंट लिसनर
+      nextButton.addEventListener("click", () => {
+          if ((currentPage + 1) * questionsPerPage < questions.length) {
+              currentPage++;
+              loadQuestions(currentPage);
+          }
+      });
+      
+      // पहली बार सवाल लोड करें
+      loadQuestions(currentPage)</script>
+    </div>
+</body>
+</html>
