@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions and Answers</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #8659da, #9050a0);
+            color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Container */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.1);
+            width: 100%;
+            height: 100%;
+            max-width: 1200px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #ffcc00;
+            margin: 0;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        #question-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* Question Box */
+        .question-item {
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 10px 0;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .question-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .question-item p strong {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.3rem;
+            color: #ffd700;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .question-item p {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #ffffff;
+            text-align: justify;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            background: #ffcc00;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-button:hover {
+            background: #ffc107;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-button:disabled {
+            background: #ccc;
+            color: #666;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Theoretical Questions</h1>
+        </header>
+        <main id="question-list">
+            <!-- Questions will be dynamically added here -->
+        </main>
+        <footer>
+            <button id="prev" class="nav-button">Previous</button>
+            <button id="next" class="nav-button">Next</button>
+        </footer>
+        <script>   // गणित के सवाल और उनके उत्तर
+        const questions = [
+    { 
+        question: "प्रश्न 1: कंप्यूटर का मस्तिष्क किसे कहा जाता है?", 
+        answer: "उत्तर: सेंट्रल प्रोसेसिंग यूनिट (CPU)।" 
+    },
+    { 
+        question: "प्रश्न 2: पहला मानव निर्मित उपग्रह कौन सा था?", 
+        answer: "उत्तर: स्पुतनिक-1।" 
+    },
+    { 
+        question: "प्रश्न 3: डीएनए का पूरा नाम क्या है?", 
+        answer: "उत्तर: डिऑक्सीराइबोन्यूक्लिक एसिड।" 
+    },
+    { 
+        question: "प्रश्न 4: बल्ब का आविष्कार किसने किया?", 
+        answer: "उत्तर: थॉमस अल्वा एडीसन।" 
+    },
+    { 
+        question: "प्रश्न 5: सूर्य के प्रकाश को पृथ्वी तक आने में कितना समय लगता है?", 
+        answer: "उत्तर: लगभग 8 मिनट और 20 सेकंड।" 
+    },
+    { 
+        question: "प्रश्न 6: इंटरनेट का आविष्कार किसने किया?", 
+        answer: "उत्तर: विंटन सर्फ और रॉबर्ट कान।" 
+    },
+    { 
+        question: "प्रश्न 7: मनुष्य के शरीर में सबसे बड़ा अंग कौन सा है?", 
+        answer: "उत्तर: त्वचा।" 
+    },
+    { 
+        question: "प्रश्न 8: इलेक्ट्रॉन की खोज किसने की?", 
+        answer: "उत्तर: जे.जे. थॉमसन।" 
+    },
+    { 
+        question: "प्रश्न 9: सबसे हल्का तत्व कौन सा है?", 
+        answer: "उत्तर: हाइड्रोजन।" 
+    },
+    { 
+        question: "प्रश्न 10: हमारे सौर मंडल का सबसे बड़ा ग्रह कौन सा है?", 
+        answer: "उत्तर: बृहस्पति।" 
+    },
+    { 
+        question: "प्रश्न 11: भारत का पहला उपग्रह कौन सा था?", 
+        answer: "उत्तर: आर्यभट्ट।" 
+    },
+    { 
+        question: "प्रश्न 12: प्रकाश वर्ष क्या मापता है?", 
+        answer: "उत्तर: दूरी।" 
+    },
+    { 
+        question: "प्रश्न 13: पानी का रासायनिक सूत्र क्या है?", 
+        answer: "उत्तर: H2O।" 
+    },
+    { 
+        question: "प्रश्न 14: मानव शरीर में कितनी हड्डियां होती हैं?", 
+        answer: "उत्तर: 206 हड्डियां।" 
+    },
+    { 
+        question: "प्रश्न 15: भारत में पहला परमाणु ऊर्जा स्टेशन कहां स्थापित किया गया था?", 
+        answer: "उत्तर: तारापुर।" 
+    },
+    { 
+        question: "प्रश्न 16: सबसे तेज़ भूमि प्राणी कौन सा है?", 
+        answer: "उत्तर: चीता।" 
+    },
+    { 
+        question: "प्रश्न 17: न्यूटन का तीसरा नियम क्या है?", 
+        answer: "उत्तर: प्रत्येक क्रिया के बराबर और विपरीत प्रतिक्रिया होती है।" 
+    },
+    { 
+        question: "प्रश्न 18: सेल का अध्ययन किसे कहा जाता है?", 
+        answer: "उत्तर: कोशिका विज्ञान।" 
+    },
+    { 
+        question: "प्रश्न 19: कंप्यूटर के संस्थापक कौन हैं?", 
+        answer: "उत्तर: चार्ल्स बैबेज।" 
+    },
+    { 
+        question: "प्रश्न 20: आवर्त सारणी के जनक कौन हैं?", 
+        answer: "उत्तर: मेंडलीव।" 
+    },
+    { 
+        question: "प्रश्न 21: कौन सा गैस जीवन के लिए आवश्यक है?", 
+        answer: "उत्तर: ऑक्सीजन।" 
+    },
+    { 
+        question: "प्रश्न 22: सबसे भारी धातु कौन सी है?", 
+        answer: "उत्तर: ऑस्मियम।" 
+    },
+    { 
+        question: "प्रश्न 23: मनुष्य के मस्तिष्क का वजन कितना होता है?", 
+        answer: "उत्तर: लगभग 1.4 किलोग्राम।" 
+    },
+    { 
+        question: "प्रश्न 24: प्रकाश की गति क्या है?", 
+        answer: "उत्तर: 3 लाख किमी/सेकंड।" 
+    },
+    { 
+        question: "प्रश्न 25: ब्लड बैंक की खोज किसने की?", 
+        answer: "उत्तर: चार्ल्स ड्रू।" 
+    },
+    { 
+        question: "प्रश्न 26: मोबाइल फोन का आविष्कार किसने किया?", 
+        answer: "उत्तर: मार्टिन कूपर।" 
+    },
+    { 
+        question: "प्रश्न 27: कौन सा यंत्र भूकंप मापता है?", 
+        answer: "उत्तर: सिस्मोग्राफ।" 
+    },
+    { 
+        question: "प्रश्न 28: चंद्रमा पर कदम रखने वाले पहले व्यक्ति कौन थे?", 
+        answer: "उत्तर: नील आर्मस्ट्रांग।" 
+    },
+    { 
+        question: "प्रश्न 29: विद्युत प्रतिरोध का SI मात्रक क्या है?", 
+        answer: "उत्तर: ओम।" 
+    },
+    { 
+        question: "प्रश्न 30: दूध में कौन सा प्रोटीन पाया जाता है?", 
+        answer: "उत्तर: केसिन।" 
+    },
+    { 
+        question: "प्रश्न 31: सबसे ठंडा ग्रह कौन सा है?", 
+        answer: "उत्तर: वरुण (यूरेनस)।" 
+    },
+    { 
+        question: "प्रश्न 32: वायुयान के आविष्कारक कौन थे?", 
+        answer: "उत्तर: राइट ब्रदर्स।" 
+    },
+    { 
+        question: "प्रश्न 33: पहला कृत्रिम हृदय प्रत्यारोपण किसने किया?", 
+        answer: "उत्तर: क्रिस्टियान बर्नार्ड।" 
+    },
+    { 
+        question: "प्रश्न 34: रोबोटिक्स का जनक किसे कहा जाता है?", 
+        answer: "उत्तर: जोसेफ एंगलबर्ग।" 
+    },
+    { 
+        question: "प्रश्न 35: इंसुलिन की खोज किसने की?", 
+        answer: "उत्तर: फ्रेडरिक बैंटिंग और चार्ल्स बेस्ट।" 
+    },
+    { 
+        question: "प्रश्न 36: हवाई जहाज में काले बॉक्स का क्या उपयोग होता है?", 
+        answer: "उत्तर: उड़ान का रिकॉर्ड रखने के लिए।" 
+    },
+    { 
+        question: "प्रश्न 37: कंप्यूटर के लिए पहला प्रोग्रामिंग लैंग्वेज कौन सा था?", 
+        answer: "उत्तर: फोरट्रान।" 
+    },
+    { 
+        question: "प्रश्न 38: भारतीय अंतरिक्ष अनुसंधान संगठन (ISRO) की स्थापना कब हुई?", 
+        answer: "उत्तर: 1969 में।" 
+    },
+    { 
+        question: "प्रश्न 39: सबसे बड़ा कृत्रिम उपग्रह कौन सा है?", 
+        answer: "उत्तर: अंतरराष्ट्रीय अंतरिक्ष स्टेशन (ISS)।" 
+    },
+    { 
+        question: "प्रश्न 40: सबसे लंबी हड्डी कौन सी है?", 
+        answer: "उत्तर: फीमर।" 
+    },
+    { 
+        question: "प्रश्न 41: परमाणु बम का जनक किसे कहा जाता है?", 
+        answer: "उत्तर: रॉबर्ट ओपेनहाइमर।" 
+    },
+    { 
+        question: "प्रश्न 42: दुनिया की पहली क्लोन भेड़ का नाम क्या था?", 
+        answer: "उत्तर: डॉली।" 
+    },
+    { 
+        question: "प्रश्न 43: कौन सी धातु सबसे अधिक विद्युत चालकता रखती है?", 
+        answer: "उत्तर: चांदी।" 
+    },
+    { 
+        question: "प्रश्न 44: कौन सा ग्रह अपनी धुरी पर सबसे तेज घूमता है?", 
+        answer: "उत्तर: बृहस्पति।" 
+    },
+    { 
+        question: "प्रश्न 45: रोबोटिक्स का पहला कानून किसने दिया?", 
+        answer: "उत्तर: इसाक असिमोव।" 
+    },
+    { 
+        question: "प्रश्न 46: एंटीबायोटिक पेनिसिलिन की खोज किसने की?", 
+        answer: "उत्तर: अलेक्जेंडर फ्लेमिंग।" 
+    },
+    { 
+        question: "प्रश्न 47: हमारे सौर मंडल का सबसे गर्म ग्रह कौन सा है?", 
+        answer: "उत्तर: शुक्र।" 
+    },
+    { 
+        question: "प्रश्न 48: शरीर में सबसे छोटी हड्डी कौन सी है?", 
+        answer: "उत्तर: स्टेप्स।" 
+    },
+    {
+        question: "प्रश्न 49: सबसे पहला कंप्यूटर कौन सा था?", 
+        answer: "उत्तर: ENIAC।" 
+    },
+    { 
+        question: "प्रश्न 50: दुनिया की पहली वेबसाइट कब बनी?", 
+        answer: "उत्तर: 1991 में।" 
+    },
+    { 
+        question: "प्रश्न 51: मानव शरीर का कौन सा अंग सबसे तेज़ पुनर्जनन करता है?", 
+        answer: "उत्तर: लिवर।" 
+    },
+    { 
+        question: "प्रश्न 52: पृथ्वी पर सबसे बड़ी ज्वालामुखी कौन सी है?", 
+        answer: "उत्तर: मौना लोआ, हवाई।" 
+    },
+    { 
+        question: "प्रश्न 53: ब्लूटूथ तकनीक किसके लिए प्रयोग की जाती है?", 
+        answer: "उत्तर: कम दूरी पर वायरलेस डेटा ट्रांसफर।" 
+    },
+    { 
+        question: "प्रश्न 54: चंद्रयान-2 मिशन का उद्देश्य क्या था?", 
+        answer: "उत्तर: चंद्रमा के दक्षिणी ध्रुव का अध्ययन।" 
+    },
+    { 
+        question: "प्रश्न 55: पृथ्वी के वायुमंडल की सबसे बाहरी परत कौन सी है?", 
+        answer: "उत्तर: एक्सोस्फीयर।" 
+    },
+    { 
+        question: "प्रश्न 56: सबसे पहले सूक्ष्मजीवों को देखने वाला वैज्ञानिक कौन था?", 
+        answer: "उत्तर: एंटोनी वैन लीउवेनहूक।" 
+    },
+    { 
+        question: "प्रश्न 57: दुनिया का सबसे बड़ा कंप्यूटर नेटवर्क क्या है?", 
+        answer: "उत्तर: इंटरनेट।" 
+    },
+    { 
+        question: "प्रश्न 58: पहला प्रोग्रामेबल कंप्यूटर कौन सा था?", 
+        answer: "उत्तर: Zuse Z3।" 
+    },
+    { 
+        question: "प्रश्न 59: मानव शरीर में लाल रक्त कोशिकाओं की आयु कितनी होती है?", 
+        answer: "उत्तर: 120 दिन।" 
+    },
+    { 
+        question: "प्रश्न 60: कृत्रिम उपग्रह का उपयोग मुख्य रूप से किसके लिए होता है?", 
+        answer: "उत्तर: संचार, नेविगेशन और अनुसंधान।" 
+    },
+    { 
+        question: "प्रश्न 61: DNA की संरचना का पता किसने लगाया?", 
+        answer: "उत्तर: वॉटसन और क्रिक।" 
+    },
+    { 
+        question: "प्रश्न 62: दुनिया की पहली आर्टिफिशियल इंटेलिजेंस लैब कहां स्थापित हुई?", 
+        answer: "उत्तर: MIT, अमेरिका।" 
+    },
+    { 
+        question: "प्रश्न 63: कौन सा ग्रह दिन में सबसे लंबा होता है?", 
+        answer: "उत्तर: शुक्र।" 
+    },
+    { 
+        question: "प्रश्न 64: परमाणु ऊर्जा संयंत्र में किस तत्व का उपयोग किया जाता है?", 
+        answer: "उत्तर: यूरेनियम।" 
+    },
+    { 
+        question: "प्रश्न 65: आकाशगंगा के केंद्र में कौन सा पिंड होता है?", 
+        answer: "उत्तर: ब्लैक होल।" 
+    },
+    { 
+        question: "प्रश्न 66: 1 क्यूबिक सेंटीमीटर में कितने मिलीलीटर होते हैं?", 
+        answer: "उत्तर: 1 मिलीलीटर।" 
+    },
+    { 
+        question: "प्रश्न 67: रोबोट में किस प्रकार के सेंसर का उपयोग किया जाता है?", 
+        answer: "उत्तर: अल्ट्रासोनिक सेंसर।" 
+    },
+    { 
+        question: "प्रश्न 68: प्रकाश की तंरगदैर्ध्य किससे मापी जाती है?", 
+        answer: "उत्तर: नैनोमीटर।" 
+    },
+    { 
+        question: "प्रश्न 69: मानव शरीर का सबसे छोटा अंग कौन सा है?", 
+        answer: "उत्तर: पीनियल ग्रंथि।" 
+    },
+    { 
+        question: "प्रश्न 70: पेसमेकर किस अंग में लगाया जाता है?", 
+        answer: "उत्तर: हृदय।" 
+    },
+    { 
+        question: "प्रश्न 71: नाभिकीय संलयन में किसका उपयोग होता है?", 
+        answer: "उत्तर: हाइड्रोजन।" 
+    },
+    { 
+        question: "प्रश्न 72: सौर ऊर्जा किससे उत्पन्न होती है?", 
+        answer: "उत्तर: सूर्य की किरणों से।" 
+    },
+    { 
+        question: "प्रश्न 73: दुनिया का पहला कम्प्यूटर वायरस कौन सा था?", 
+        answer: "उत्तर: Creeper।" 
+    },
+    { 
+        question: "प्रश्न 74: विद्युत धारा का SI मात्रक क्या है?", 
+        answer: "उत्तर: एम्पीयर।" 
+    },
+    { 
+        question: "प्रश्न 75: कृत्रिम उपग्रह को पृथ्वी की कक्षा में स्थापित करने के लिए कौन सी शक्ति लगती है?", 
+        answer: "उत्तर: अभिकेन्द्रीय बल।" 
+    },
+    { 
+        question: "प्रश्न 76: सूर्य का तापमान कितना होता है?", 
+        answer: "उत्तर: लगभग 15 मिलियन डिग्री सेल्सियस।" 
+    },
+    { 
+        question: "प्रश्न 77: किस पदार्थ में ध्वनि की गति सबसे अधिक होती है?", 
+        answer: "उत्तर: ठोस।" 
+    },
+    { 
+        question: "प्रश्न 78: सबसे पहला रोबोटिक यंत्र कौन सा था?", 
+        answer: "उत्तर: Automaton।" 
+    },
+    { 
+        question: "प्रश्न 79: दुनिया की सबसे गहरी खान कौन सी है?", 
+        answer: "उत्तर: मपोनेंग गोल्ड माइन्स, दक्षिण अफ्रीका।" 
+    },
+    { 
+        question: "प्रश्न 80: कृत्रिम बुद्धिमत्ता में मशीन लर्निंग का क्या उपयोग है?", 
+        answer: "उत्तर: डेटा पैटर्न्स को पहचानने के लिए।" 
+    },
+    { 
+        question: "प्रश्न 81: मनुष्य के मस्तिष्क में कितने न्यूरॉन्स होते हैं?", 
+        answer: "उत्तर: लगभग 86 बिलियन।" 
+    },
+    { 
+        question: "प्रश्न 82: रेडियो का आविष्कार किसने किया?", 
+        answer: "उत्तर: गूग्लिएल्मो मार्कोनी।" 
+    },
+    { 
+        question: "प्रश्न 83: सबसे पहले किसने पृथ्वी को गोल कहा?", 
+        answer: "उत्तर: पाइथागोरस।" 
+    },
+    { 
+        question: "प्रश्न 84: कृत्रिम सैटेलाइट से डेटा कैसे प्राप्त होता है?", 
+        answer: "उत्तर: रेडियो तरंगों के माध्यम से।" 
+    },
+    { 
+        question: "प्रश्न 85: गैलेक्सी के अध्ययन को क्या कहा जाता है?", 
+        answer: "उत्तर: खगोल विज्ञान।" 
+    },
+    { 
+        question: "प्रश्न 86: कृत्रिम बुद्धिमत्ता के कितने प्रकार होते हैं?", 
+        answer: "उत्तर: तीन प्रकार - संकीर्ण AI, सामान्य AI, और सुपर AI।" 
+    },
+    { 
+        question: "प्रश्न 87: सबसे पहली बैटरी का आविष्कार किसने किया?", 
+        answer: "उत्तर: अलेसांद्रो वोल्टा।" 
+    },
+    { 
+        question: "प्रश्न 88: इलेक्ट्रिक कार का पहला आविष्कार किसने किया?", 
+        answer: "उत्तर: रॉबर्ट एंडरसन।" 
+    },
+    { 
+        question: "प्रश्न 89: सबसे पहली मानव अंतरिक्ष यात्रा किसने की?", 
+        answer: "उत्तर: यूरी गागरिन।" 
+    },
+    { 
+        question: "प्रश्न 90: आकाशगंगा का सबसे पुराना तारा कौन सा है?", 
+        answer: "उत्तर: HD 140283।" 
+    },
+    { 
+        question: "प्रश्न 91: कौन सी धातु जलाने पर सफेद प्रकाश उत्पन्न करती है?", 
+        answer: "उत्तर: मैग्नीशियम।" 
+    },
+    { 
+        question: "प्रश्न 92: सबसे अधिक उपयोग किया जाने वाला प्रोग्रामिंग लैंग्वेज कौन सा है?", 
+        answer: "उत्तर: पायथन।" 
+    },
+    { 
+        question: "प्रश्न 93: मानव शरीर की सबसे बड़ी ग्रंथि कौन सी है?", 
+        answer: "उत्तर: यकृत (लिवर)।" 
+    },
+    { 
+        question: "प्रश्न 94: 1 किलोबाइट में कितने बाइट्स होते हैं?", 
+        answer: "उत्तर: 1024 बाइट्स।" 
+    },
+    { 
+        question: "प्रश्न 95: कौन सा ग्रह अपने अक्ष पर पीछे की ओर घूमता है?", 
+        answer: "उत्तर: शुक्र।" 
+    },
+    { 
+        question: "प्रश्न 96: अल्बर्ट आइंस्टीन का प्रसिद्ध समीकरण क्या है?", 
+        answer: "उत्तर: E = mc²।" 
+    },
+    { 
+        question: "प्रश्न 97: सबसे छोटा उपग्रह कौन सा है?", 
+        answer: "उत्तर: कल्पना।" 
+    },
+    { 
+        question: "प्रश्न 98: जल में कौन सा तत्व मुख्य रूप से पाया जाता है?", 
+        answer: "उत्तर: हाइड्रोजन और ऑक्सीजन।" 
+    },
+    { 
+        question: "प्रश्न 99: प्रोग्रामिंग में 'बग' शब्द का क्या मतलब है?", 
+        answer: "उत्तर: कोड में गलती।" 
+    },
+    { 
+        question: "प्रश्न 100: सुपर कंप्यूटर का उपयोग मुख्य रूप से किसके लिए किया जाता है?", 
+        answer: "उत्तर: जटिल गणनाओं और सिमुलेशन के लिए।" 
+    },
+
+
+       // Add more questions here...
+        ];
+      let currentPage = 0;
+      const questionsPerPage =20 ; // Display 5 questions per page
+      
+      const questionListElement = document.getElementById("question-list");
+      const prevButton = document.getElementById("prev");
+      const nextButton = document.getElementById("next");
+      
+      // सवालों को पेज पर लोड करना
+      function loadQuestions(page) {
+          questionListElement.innerHTML = ""; // वर्तमान सवाल साफ करें
+          const start = page * questionsPerPage; // पेज की शुरुआत
+          const end = Math.min(start + questionsPerPage, questions.length); // पेज का अंत
+      
+          for (let i = start; i < end; i++) {
+              const questionItem = document.createElement("div");
+              questionItem.className = "question-item";
+              questionItem.innerHTML = `
+                  <p><strong>${questions[i].question}</strong></p>
+                  <p>${questions[i].answer}</p>
+              `;
+              questionListElement.appendChild(questionItem);
+          }
+      
+          // "Previous" और "Next" बटन को सक्षम/अक्षम करना
+          prevButton.disabled = page === 0;
+          nextButton.disabled = end === questions.length;
+      }
+      
+      // "Previous" बटन का इवेंट लिसनर
+      prevButton.addEventListener("click", () => {
+          if (currentPage > 0) {
+              currentPage--;
+              loadQuestions(currentPage);
+          }
+      });
+      
+      // "Next" बटन का इवेंट लिसनर
+      nextButton.addEventListener("click", () => {
+          if ((currentPage + 1) * questionsPerPage < questions.length) {
+              currentPage++;
+              loadQuestions(currentPage);
+          }
+      });
+      
+      // पहली बार सवाल लोड करें
+      loadQuestions(currentPage)</script>
+    </div>
+</body>
+</html>
