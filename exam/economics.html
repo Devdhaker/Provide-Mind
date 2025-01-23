@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions and Answers</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #1e3c72, #2a5298);
+            color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Container */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.1);
+            width: 100%;
+            height: 100%;
+            max-width: 1200px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #ffcc00;
+            margin: 0;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        #question-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* Question Box */
+        .question-item {
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 10px 0;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .question-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .question-item p strong {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.3rem;
+            color: #ffd700;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .question-item p {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #ffffff;
+            text-align: justify;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            background: #ffcc00;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-button:hover {
+            background: #ffc107;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-button:disabled {
+            background: #ccc;
+            color: #666;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Theoretical Questions</h1>
+        </header>
+        <main id="question-list">
+            <!-- Questions will be dynamically added here -->
+        </main>
+        <footer>
+            <button id="prev" class="nav-button">Previous</button>
+            <button id="next" class="nav-button">Next</button>
+        </footer>
+        <script>   // गणित के सवाल और उनके उत्तर
+        const questions = [
+    {
+        "question": "Question 1: यदि किसी वस्तु की कीमत बढ़ती है, तो माँग पर इसका क्या प्रभाव पड़ेगा?",
+        "answer": "Answer: जब किसी वस्तु की कीमत बढ़ती है, तो सामान्यतः उस वस्तु की माँग कम हो जाती है। इसे 'माँग का नियम' (Law of Demand) कहा जाता है।"
+    },
+    {
+        "question": "Question 2: संतुलन मूल्य (Equilibrium Price) क्या है?",
+        "answer": "Answer: संतुलन मूल्य वह कीमत है जिस पर बाजार में माँग और आपूर्ति बराबर होती है। इस स्थिति में न तो अधिशेष होता है और न ही घाटा।"
+    },
+    {
+        "question": "Question 3: वस्तु और सेवा कर (GST) का उद्देश्य क्या है?",
+        "answer": "Answer: GST का उद्देश्य कर प्रणाली को सरल बनाना, कई करों को एक में समाहित करना और पूरे देश में एक समान अप्रत्यक्ष कर प्रणाली लागू करना है।"
+    },
+    {
+        "question": "Question 4: सकल घरेलू उत्पाद (GDP) क्या है?",
+        "answer": "Answer: GDP एक देश के भीतर एक निश्चित समय अवधि में उत्पादित सभी वस्तुओं और सेवाओं का कुल मौद्रिक मूल्य है।"
+    },
+    {
+        "question": "Question 5: मुद्रास्फीति (Inflation) क्या है?",
+        "answer": "Answer: मुद्रास्फीति का अर्थ है वस्तुओं और सेवाओं की कीमतों में सामान्य वृद्धि, जो पैसे की क्रय शक्ति को कम करती है।"
+    },
+    {
+        "question": "Question 6: बेरोजगारी (Unemployment) कितने प्रकार की होती है?",
+        "answer": "Answer: बेरोजगारी के मुख्य प्रकार हैं: संरचनात्मक बेरोजगारी, मौसमी बेरोजगारी, घर्षणात्मक बेरोजगारी, और प्रच्छन्न बेरोजगारी।"
+    },
+    {
+        "question": "Question 7: माँग का नियम (Law of Demand) क्या कहता है?",
+        "answer": "Answer: माँग का नियम कहता है कि यदि किसी वस्तु की कीमत बढ़ती है, तो उसकी माँग घटती है, और कीमत घटने पर माँग बढ़ती है।"
+    },
+    {
+        "question": "Question 8: आपूर्ति का नियम (Law of Supply) क्या कहता है?",
+        "answer": "Answer: आपूर्ति का नियम कहता है कि यदि किसी वस्तु की कीमत बढ़ती है, तो उसकी आपूर्ति भी बढ़ती है, और कीमत घटने पर आपूर्ति कम हो जाती है।"
+    },
+    {
+        "question": "Question 9: बाजार क्या है?",
+        "answer": "Answer: बाजार वह स्थान है जहाँ खरीदार और विक्रेता वस्तुओं और सेवाओं का आदान-प्रदान करते हैं।"
+    },
+    {
+        "question": "Question 10: उदारीकरण (Liberalization) क्या है?",
+        "answer": "Answer: उदारीकरण का अर्थ है आर्थिक नीतियों में बदलाव करके बाजार को अधिक स्वतंत्र और प्रतिस्पर्धात्मक बनाना।"
+    },
+    {
+        "question": "Question 11: वित्तीय घाटा (Fiscal Deficit) क्या है?",
+        "answer": "Answer: जब सरकार के कुल खर्च उसके कुल राजस्व से अधिक हो जाते हैं, तो उसे वित्तीय घाटा कहा जाता है।"
+    },
+    {
+        "question": "Question 12: मुद्रा स्फीति (Monetary Inflation) किसे कहते हैं?",
+        "answer": "Answer: जब किसी देश में मुद्रा का प्रवाह बहुत अधिक हो जाता है और वस्तुओं एवं सेवाओं की कीमतें बढ़ने लगती हैं, तो इसे मुद्रा स्फीति कहा जाता है।"
+    },
+    {
+        "question": "Question 13: केंद्रीय बैंक (Central Bank) का मुख्य कार्य क्या है?",
+        "answer": "Answer: केंद्रीय बैंक का मुख्य कार्य मुद्रा नीति को नियंत्रित करना, मुद्रास्फीति को प्रबंधित करना और देश के वित्तीय प्रणाली को स्थिर रखना है।"
+    },
+    {
+        "question": "Question 14: उपभोक्ता अधिशेष (Consumer Surplus) क्या है?",
+        "answer": "Answer: उपभोक्ता अधिशेष वह अंतर है जो उपभोक्ता किसी वस्तु की कीमत के लिए भुगतान करने को तैयार होता है और वास्तविक कीमत के बीच होता है।"
+    },
+    {
+        "question": "Question 15: उत्पादन की सीमा लागत (Marginal Cost of Production) क्या है?",
+        "answer": "Answer: उत्पादन की सीमा लागत वह अतिरिक्त लागत है जो एक और यूनिट उत्पादन करने में लगती है।"
+    },
+    {
+        "question": "Question 16: पूर्ण प्रतियोगिता (Perfect Competition) क्या है?",
+        "answer": "Answer: पूर्ण प्रतियोगिता एक ऐसा बाजार है जहाँ कई विक्रेता और खरीदार होते हैं, और सभी को वस्तुओं और सेवाओं के बारे में संपूर्ण जानकारी होती है।"
+    },
+    {
+        "question": "Question 17: आर्थिक विकास (Economic Development) और आर्थिक वृद्धि (Economic Growth) में क्या अंतर है?",
+        "answer": "Answer: आर्थिक वृद्धि का अर्थ है GDP का बढ़ना, जबकि आर्थिक विकास का अर्थ है जीवन स्तर, शिक्षा और स्वास्थ्य में सुधार।"
+    },
+    {
+        "question": "Question 18: माँग की लोच (Elasticity of Demand) क्या है?",
+        "answer": "Answer: माँग की लोच यह मापती है कि कीमत में बदलाव के कारण माँग कितनी बदलती है।"
+    },
+    {
+        "question": "Question 19: ऋण वसूल दर (Recovery Rate) क्या है?",
+        "answer": "Answer: यह दर बताती है कि किसी देश में खराब ऋणों का कितने प्रतिशत वसूला गया है।"
+    },
+    {
+        "question": "Question 20: राजकोषीय नीति (Fiscal Policy) क्या है?",
+        "answer": "Answer: यह सरकार द्वारा कर और खर्च से संबंधित नीतियों को दर्शाती है, जिसका उद्देश्य अर्थव्यवस्था को स्थिर और विकसित करना है।"
+    },
+
+    {
+        "question": "Question 21: माँग और आपूर्ति के बीच संबंध क्या है?",
+        "answer": "Answer: माँग और आपूर्ति एक दूसरे के विपरीत काम करते हैं। जब माँग बढ़ती है और आपूर्ति कम होती है, तो कीमतें बढ़ जाती हैं, और इसके विपरीत।"
+    },
+    {
+        "question": "Question 22: संरचनात्मक बेरोजगारी (Structural Unemployment) क्या है?",
+        "answer": "Answer: यह तब होती है जब श्रमिकों के कौशल नौकरी के लिए आवश्यक कौशल से मेल नहीं खाते।"
+    },
+    {
+        "question": "Question 23: सार्वजनिक वस्तुएँ (Public Goods) क्या हैं?",
+        "answer": "Answer: सार्वजनिक वस्तुएँ वे वस्तुएँ हैं जिनका उपयोग सभी लोग कर सकते हैं, जैसे सड़क, प्रकाश व्यवस्था, आदि।"
+    },
+    {
+        "question": "Question 24: भुगतान संतुलन (Balance of Payments) क्या है?",
+        "answer": "Answer: भुगतान संतुलन एक देश के सभी अंतर्राष्ट्रीय लेनदेन का रिकॉर्ड है।"
+    },
+    {
+        "question": "Question 25: सीमांत उपयोगिता (Marginal Utility) क्या है?",
+        "answer": "Answer: सीमांत उपयोगिता वह अतिरिक्त संतोष है जो किसी वस्तु की एक अतिरिक्त इकाई के उपभोग से मिलता है।"
+    },
+    {
+        "question": "Question 26: राष्ट्रीय आय (National Income) क्या है?",
+        "answer": "Answer: राष्ट्रीय आय एक देश के निवासियों द्वारा एक वर्ष में अर्जित कुल आय है।"
+    },
+    {
+        "question": "Question 27: वर्धित लागत (Incremental Cost) क्या है?",
+        "answer": "Answer: वर्धित लागत किसी उत्पादन स्तर को बढ़ाने से होने वाली अतिरिक्त लागत है।"
+    },
+    {
+        "question": "Question 28: मुद्रा स्फीति (Monetary Inflation) को नियंत्रित करने के तरीके क्या हैं?",
+        "answer": "Answer: मुद्रा स्फीति को नियंत्रित करने के लिए केंद्रीय बैंक ब्याज दर बढ़ा सकता है, सरकारी खर्च कम कर सकता है, या मुद्रा आपूर्ति कम कर सकता है।"
+    },
+    {
+        "question": "Question 29: मुद्रा अवमूल्यन (Currency Devaluation) क्या है?",
+        "answer": "Answer: जब सरकार जानबूझकर अपनी मुद्रा की विनिमय दर को अन्य मुद्राओं के मुकाबले कम करती है, तो इसे मुद्रा अवमूल्यन कहते हैं।"
+    },
+    {
+        "question": "Question 30: मुक्त व्यापार (Free Trade) क्या है?",
+        "answer": "Answer: मुक्त व्यापार वह नीति है जिसमें देशों के बीच वस्तुओं और सेवाओं के आदान-प्रदान पर कोई प्रतिबंध नहीं होता।"
+    },
+    {
+        "question": "Question 31: उत्पादन संभावना वक्र (Production Possibility Curve) क्या दर्शाता है?",
+        "answer": "Answer: यह वक्र किसी अर्थव्यवस्था के सीमित संसाधनों के तहत अधिकतम उत्पादन क्षमता को दर्शाता है।"
+    },
+    {
+        "question": "Question 32: अपरिहार्य लागत (Opportunity Cost) क्या है?",
+        "answer": "Answer: अपरिहार्य लागत वह मूल्य है जो हमें दूसरे विकल्प को छोड़ने पर चुकानी पड़ती है।"
+    },
+    {
+        "question": "Question 33: पूंजी बाजार (Capital Market) क्या है?",
+        "answer": "Answer: पूंजी बाजार वह बाजार है जहाँ दीर्घकालिक निवेश के लिए धन जुटाया जाता है।"
+    },
+    {
+        "question": "Question 34: नकदी आरक्षित अनुपात (CRR) क्या है?",
+        "answer": "Answer: CRR वह न्यूनतम राशि है जो बैंकों को अपनी जमा राशि का एक हिस्सा केंद्रीय बैंक के पास रखना होता है।"
+    },
+    {
+        "question": "Question 35: व्यापार चक्र (Business Cycle) के चरण क्या हैं?",
+        "answer": "Answer: व्यापार चक्र के मुख्य चरण हैं: वृद्धि, उच्चतम बिंदु, मंदी, और निम्नतम बिंदु।"
+    },
+    {
+        "question": "Question 36: उपभोक्ता मूल्य सूचकांक (CPI) क्या है?",
+        "answer": "Answer: CPI एक सूचकांक है जो उपभोक्ता वस्तुओं और सेवाओं की कीमतों में बदलाव को मापता है।"
+    },
+    {
+        "question": "Question 37: मुद्रास्फीति और बेरोजगारी के बीच क्या संबंध है?",
+        "answer": "Answer: मुद्रास्फीति और बेरोजगारी के बीच संबंध को फिलिप्स वक्र (Phillips Curve) के माध्यम से समझा जाता है।"
+    },
+    {
+        "question": "Question 38: विदेशी प्रत्यक्ष निवेश (FDI) क्या है?",
+        "answer": "Answer: जब एक देश की कंपनी किसी दूसरे देश में व्यवसाय स्थापित करती है या निवेश करती है, तो इसे FDI कहते हैं।"
+    },
+    {
+        "question": "Question 39: राजस्व घाटा (Revenue Deficit) क्या है?",
+        "answer": "Answer: जब सरकार के कुल राजस्व व्यय उसके कुल राजस्व प्राप्तियों से अधिक होते हैं, तो इसे राजस्व घाटा कहते हैं।"
+    },
+    {
+        "question": "Question 40: सामाजिक लाभ (Social Benefit) क्या है?",
+        "answer": "Answer: सामाजिक लाभ वह लाभ है जो किसी गतिविधि से समाज के सभी लोगों को मिलता है।"
+    },
+    {
+        "question": "Question 41: वित्तीय संतुलन (Financial Balance) क्या है?",
+        "answer": "Answer: वित्तीय संतुलन एक स्थिति है जिसमें सरकारी आय और व्यय बराबर होते हैं।"
+    },
+    {
+        "question": "Question 42: संरक्षणवाद (Protectionism) क्या है?",
+        "answer": "Answer: संरक्षणवाद वह नीति है जिसमें विदेशी वस्तुओं पर शुल्क या प्रतिबंध लगाकर घरेलू उद्योगों की रक्षा की जाती है।"
+    },
+    {
+        "question": "Question 43: निजीकरण (Privatization) क्या है?",
+        "answer": "Answer: निजीकरण का मतलब है सरकारी कंपनियों या सेवाओं को निजी क्षेत्र को सौंपना।"
+    },
+    {
+        "question": "Question 44: प्रतिस्पर्धा नीति (Competition Policy) क्या है?",
+        "answer": "Answer: प्रतिस्पर्धा नीति का उद्देश्य व्यापारिक गतिविधियों में प्रतिस्पर्धा को बढ़ावा देना और एकाधिकार को रोकना है।"
+    },
+    {
+        "question": "Question 45: निर्यात (Export) क्या है?",
+        "answer": "Answer: निर्यात वह प्रक्रिया है जिसमें एक देश अपनी वस्तुओं और सेवाओं को दूसरे देश में भेजता है।"
+    },
+    {
+        "question": "Question 46: आयात (Import) क्या है?",
+        "answer": "Answer: आयात वह प्रक्रिया है जिसमें एक देश दूसरे देश से वस्तुएँ और सेवाएँ खरीदता है।"
+    },
+    {
+        "question": "Question 47: पूंजी निवेश (Capital Investment) क्या है?",
+        "answer": "Answer: पूंजी निवेश वह धन है जो किसी व्यक्ति या कंपनी द्वारा व्यापार, निर्माण या अन्य क्षेत्रों में दीर्घकालिक लाभ के लिए लगाया जाता है।"
+    },
+    {
+        "question": "Question 48: ऋण संकट (Debt Crisis) क्या है?",
+        "answer": "Answer: ऋण संकट तब होता है जब किसी देश या संगठन के पास अपने ऋणों को चुकता करने के लिए पर्याप्त संसाधन नहीं होते।"
+    },
+    {
+        "question": "Question 49: प्रभावी मांग (Effective Demand) क्या है?",
+        "answer": "Answer: प्रभावी मांग वह मांग है जब उपभोक्ता अपनी इच्छाओं को पूरा करने के लिए भुगतान करने को तैयार होते हैं।"
+    },
+    {
+        "question": "Question 50: भारतीय रिज़र्व बैंक (RBI) का कार्य क्या है?",
+        "answer": "Answer: RBI का कार्य भारतीय मुद्रा का नियंत्रण, बैंकों का नियमन, और वित्तीय स्थिरता बनाए रखना है।"
+    },
+    {
+        "question": "Question 51: रियायती दर (Discount Rate) क्या है?",
+        "answer": "Answer: रियायती दर वह दर है जिस पर केंद्रीय बैंक बैंकों को उधार देता है।"
+    },
+    {
+        "question": "Question 52: नकदी प्रवाह (Cash Flow) क्या है?",
+        "answer": "Answer: नकदी प्रवाह किसी कंपनी के अंदर और बाहर जाने वाली नकदी की राशि को दर्शाता है।"
+    },
+    {
+        "question": "Question 53: सार्वजनिक ऋण (Public Debt) क्या है?",
+        "answer": "Answer: सार्वजनिक ऋण वह ऋण है जो सरकार द्वारा विभिन्न स्रोतों से लिया जाता है।"
+    },
+    {
+        "question": "Question 54: निजी निवेश (Private Investment) क्या है?",
+        "answer": "Answer: निजी निवेश वह धन है जो निजी क्षेत्र की कंपनियाँ या व्यक्ति किसी व्यापार या परियोजना में लगाते हैं।"
+    },
+    {
+        "question": "Question 55: बहु-राष्ट्रीय कंपनियाँ (Multinational Corporations) क्या हैं?",
+        "answer": "Answer: बहु-राष्ट्रीय कंपनियाँ वे कंपनियाँ हैं जो कई देशों में व्यवसाय करती हैं और अंतर्राष्ट्रीय स्तर पर संचालन करती हैं।"
+    },
+    {
+        "question": "Question 56: दीर्घकालिक निवेश (Long-term Investment) क्या है?",
+        "answer": "Answer: दीर्घकालिक निवेश वह निवेश होते हैं जो वर्षों तक बनाए रखते हैं और समय के साथ बढ़ने की संभावना रखते हैं।"
+    },
+    {
+        "question": "Question 57: एकल-नकदी मुद्रा प्रणाली (Single Currency System) क्या है?",
+        "answer": "Answer: एकल-नकदी मुद्रा प्रणाली का अर्थ है एक समान मुद्रा का उपयोग करना, जैसे यूरो जो यूरोपीय संघ के देशों में प्रचलित है।"
+    },
+    {
+        "question": "Question 58: विदेशी मुद्रा भंडार (Foreign Exchange Reserve) क्या है?",
+        "answer": "Answer: विदेशी मुद्रा भंडार वह संपत्ति होती है जो एक देश के पास विदेशी मुद्रा और सोने के रूप में होती है।"
+    },
+    {
+        "question": "Question 59: मानव संसाधन (Human Resources) क्या हैं?",
+        "answer": "Answer: मानव संसाधन का मतलब है उन व्यक्तियों की क्षमता, कौशल और अनुभव जो एक संगठन के लिए काम करते हैं।"
+    },
+    {
+        "question": "Question 60: पूंजी गतिशीलता (Capital Mobility) क्या है?",
+        "answer": "Answer: पूंजी गतिशीलता का अर्थ है पूंजी का अंतरराष्ट्रीय स्तर पर आंदोलन, जिससे पूंजी विभिन्न देशों में निवेश के लिए जा सकती है।"
+    },
+    {
+        "question": "Question 61: श्रमिक वर्ग (Working Class) क्या है?",
+        "answer": "Answer: श्रमिक वर्ग वे लोग होते हैं जो नौकरी के लिए श्रम प्रदान करते हैं और उन्हें वेतन मिलता है।"
+    },
+    {
+        "question": "Question 62: उपभोग (Consumption) क्या है?",
+        "answer": "Answer: उपभोग वह प्रक्रिया है जिसमें व्यक्ति या परिवार अपनी आवश्यकताओं को पूरा करने के लिए वस्त्र, भोजन, या अन्य चीज़ों का उपयोग करते हैं।"
+    },
+    {
+        "question": "Question 63: उत्पादन (Production) क्या है?",
+        "answer": "Answer: उत्पादन वह प्रक्रिया है जिसमें वस्तुओं और सेवाओं का निर्माण किया जाता है।"
+    },
+    {
+        "question": "Question 64: औद्योगिकीकरण (Industrialization) क्या है?",
+        "answer": "Answer: औद्योगिकीकरण वह प्रक्रिया है जिसमें एक देश की अर्थव्यवस्था में कृषि से उद्योगों की ओर बदलाव आता है।"
+    },
+    {
+        "question": "Question 65: ट्रेड यूनियन (Trade Union) क्या है?",
+        "answer": "Answer: ट्रेड यूनियन एक संगठन है जो श्रमिकों के अधिकारों की रक्षा करता है और उनके हितों को बढ़ावा देता है।"
+    },
+    {
+        "question": "Question 66: सकल घरेलू उत्पाद (GDP) क्या है?",
+        "answer": "Answer: सकल घरेलू उत्पाद (GDP) एक देश के भीतर एक निश्चित अवधि में उत्पादित सभी वस्तुओं और सेवाओं का कुल मूल्य है।"
+    },
+    {
+        "question": "Question 67: अंतर्राष्ट्रीय व्यापार (International Trade) क्या है?",
+        "answer": "Answer: अंतर्राष्ट्रीय व्यापार वह व्यापार है जिसमें एक देश अपनी वस्तुओं और सेवाओं को अन्य देशों के साथ व्यापार करता है।"
+    },
+    {
+        "question": "Question 68: मुद्रा आपूर्ति (Money Supply) क्या है?",
+        "answer": "Answer: मुद्रा आपूर्ति वह कुल धन है जो एक अर्थव्यवस्था में उपलब्ध है।"
+    },
+    {
+        "question": "Question 69: आर्थिक विकास (Economic Development) क्या है?",
+        "answer": "Answer: आर्थिक विकास एक देश की उत्पादन क्षमता में वृद्धि, जीवन स्तर में सुधार और बुनियादी सुविधाओं के विस्तार की प्रक्रिया है।"
+    },
+    {
+        "question": "Question 70: सकल राष्ट्रीय उत्पाद (GNP) क्या है?",
+        "answer": "Answer: सकल राष्ट्रीय उत्पाद (GNP) एक देश के नागरिकों द्वारा विदेशों में उत्पादित वस्तुओं और सेवाओं को शामिल करके सकल घरेलू उत्पाद का कुल मूल्य है।"
+    },
+    {
+        "question": "Question 71: स्थिर मूल्य (Stable Price) क्या है?",
+        "answer": "Answer: स्थिर मूल्य वह स्थिति है जिसमें वस्तुओं और सेवाओं की कीमतों में अधिक उतार-चढ़ाव नहीं होता है।"
+    },
+    {
+        "question": "Question 72: पूंजी संरचना (Capital Structure) क्या है?
