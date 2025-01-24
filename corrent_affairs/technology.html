@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>राष्ट्रीय समाचार (National)</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffffff, #ffffff);
+            margin: 0;
+            padding: 20px;
+            color: #000000;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            font-weight: 600;
+            color: #020101;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .topic {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .topic:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .topic h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #141204;
+        }
+
+        .topic p {
+            font-size: 1em;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .topic .date {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .topic a {
+            display: inline-block;
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: bold;
+            padding: 10px 20px;
+            color: #0f0202;
+            background: linear-gradient(90deg, #0c0803, #000000);
+            border-radius: 30px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .topic a:hover {
+            background: linear-gradient(90deg, #000000, #000000);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            .topic {
+                padding: 15px;
+            }
+            .topic h2 {
+                font-size: 1.2em;
+            }
+            .topic p {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>राष्ट्रीय समाचार (National)</h1>
+    <div id="topics-container">
+        <!-- Topics will be dynamically added by JavaScript -->
+    </div>
+    
+</body>
+</html>
+<script>
+// Topics data with folder addresses and upload dates
+const topics = [
+    {
+        title: "Mathematics",
+        link: "./math/tophic1.html",
+        date: "2025-01-15",
+    },
+    {
+        title: "Physics",
+        link: "./math/tophic2.html",
+        date: "2025-01-20",
+    },
+    {
+        title: "Chemistry",
+        link: "./math/tophic3.html",
+        date: "2025-01-22",
+    },
+    {
+        title: "Biology",
+        link: "./math/tophic4.html",
+        date: "2025-01-23",
+    },
+    {
+        title: "Computer Science",
+        link: "./math/tophic5.html",
+        date: "2025-01-24",
+    },
+];
+
+// Select the container
+const container = document.getElementById("topics-container");
+
+// Function to fetch the first two lines from a topic page
+function fetchTopicDescription(link, callback) {
+    fetch(link)
+        .then((response) => {
+            if (!response.ok) throw new Error("Failed to load page.");
+            return response.text();
+        })
+        .then((html) => {
+            const tempDiv = document.createElement("div");
+            tempDiv.innerHTML = html;
+
+            // Find the first <h1> and <p> tags
+            const title = tempDiv.querySelector("h1")?.innerText || "No Title Found";
+            const description = tempDiv.querySelector("p")?.innerText || "No Description Found";
+
+            callback({ title, description });
+        })
+        .catch(() => {
+            callback({
+                title: "Error Loading Page",
+                description: "Unable to load details from the topic page.",
+            });
+        });
+}
+
+// Generate and append topics dynamically
+function generateTopics() {
+    // Reverse the topics array to make the latest topic appear first
+    const reversedTopics = [...topics].reverse();
+
+    reversedTopics.forEach((topic) => {
+        fetchTopicDescription(topic.link, (data) => {
+            const topicDiv = document.createElement("div");
+            topicDiv.className = "topic";
+
+            // Add topic content dynamically
+            topicDiv.innerHTML = `
+                <h2>${data.title}</h2>
+                <p>${data.description}</p>
+                <p class="date">Uploaded on: ${topic.date}</p>
+                <button class="read-more">Read More</button>
+            `;
+
+            // Make the entire topic clickable
+            topicDiv.style.cursor = "pointer";
+
+            // Add click event to navigate to the topic page
+            topicDiv.onclick = () => {
+                window.location.href = topic.link;
+            };
+
+            // Prevent button from propagating the click event
+            const readMoreButton = topicDiv.querySelector(".read-more");
+            readMoreButton.onclick = (event) => {
+                event.stopPropagation(); // Stop the event from triggering the topicDiv's onclick
+                window.location.href = topic.link;
+            };
+
+            // Prepend the topic to the container to ensure it appears at the top
+            container.prepend(topicDiv);
+        });
+    });
+}
+
+// Initialize topic generation
+generateTopics();
+</script>
