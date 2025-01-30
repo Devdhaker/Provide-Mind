@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>अक्षर श्रृंखला</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      color: #333;
+      line-height: 1.8;
+      padding: 20px;
+    }
+    header {
+      background: #343a40;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      margin-bottom: 30px;
+      border-radius: 10px;
+    }
+    .container {
+      max-width: 960px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+    .container:hover {
+      transform: translateY(-5px);
+    }
+    h1, h2, h3 {
+      color: #495057;
+      margin-bottom: 15px;
+    }
+    p {
+      margin: 10px 0;
+    }
+    ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      color: #666;
+      padding: 15px 0;
+      background: #f1f3f5;
+      border-radius: 10px;
+    }
+    #sequence {
+      display: flex;
+      justify-content: space-around;
+      padding: 10px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    .sequence-item {
+      padding: 10px;
+      background: #007bff;
+      color: white;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>अक्षर श्रृंखला</h1>
+  </header>
+  <div class="container">
+    <h2>परिचय</h2>
+    <p>अक्षर श्रृंखला एक महत्वपूर्ण अवधारणा है जिसका उपयोग विशेष रूप से शिक्षा, गणित, और भाषा विज्ञान में किया जाता है। इसमें हम विभिन्न प्रकार की अक्षरों की श्रृंखला को देखते हैं। इन श्रृंखलाओं को एक विशिष्ट पैटर्न के अनुसार व्यवस्थित किया जाता है, जिससे कि उनके बीच एक निश्चित नियम या पैटर्न का पालन किया जाता है।</p>
+
+    <h2>अक्षर श्रृंखला के प्रकार</h2>
+    <p>अक्षर श्रृंखला भी विभिन्न प्रकार की हो सकती हैं, जैसे:</p>
+
+    <h3>1. वर्णमाला की श्रृंखला (Alphabetical Sequence)</h3>
+    <p>यह सबसे सामान्य प्रकार की अक्षर श्रृंखला है, जिसमें अक्षर एक निश्चित क्रम में आते हैं। उदाहरण के लिए: A, B, C, D, E,...</p>
+
+    <h3>2. उल्टे क्रम में अक्षर श्रृंखला (Reverse Alphabetical Sequence)</h3>
+    <p>इस श्रृंखला में अक्षर उल्टे क्रम में आते हैं। उदाहरण के लिए: Z, Y, X, W, V,...</p>
+
+    <h3>3. पंक्तिबद्ध श्रृंखला (Consonant/Vowel Sequences)</h3>
+    <p>इसमें केवल स्वर (Vowels) या व्यंजन (Consonants) का उपयोग किया जाता है। उदाहरण के लिए: A, E, I, O, U (स्वर); B, C, D, F, G (व्यंजन)।</p>
+
+    <h3>4. मिश्रित अक्षर श्रृंखला (Mixed Alphabet Sequence)</h3>
+    <p>इसमें स्वर और व्यंजन दोनों का मिश्रण होता है। उदाहरण के लिए: A, B, C, E, F, I, J,...</p>
+
+    <h2>अक्षर श्रृंखला का उपयोग</h2>
+    <p>अक्षर श्रृंखला का उपयोग विभिन्न क्षेत्रों में किया जाता है:</p>
+
+    <ul>
+      <li>भाषा और शब्दावली निर्माण में: अक्षरों के क्रम का सही उपयोग शब्दों के निर्माण में मदद करता है।</li>
+      <li>गणित में: अक्षरों की श्रृंखलाओं का उपयोग पैटर्न और नियमों को समझने के लिए किया जाता है।</li>
+      <li>कोडिंग में: सॉफ़्टवेयर डेवलपमेंट और एन्कोडिंग में अक्षरों के सही क्रम का पालन आवश्यक होता है।</li>
+      <li>शिक्षा में: अक्षर श्रृंखलाओं का उपयोग बच्चों को पत्रों और शब्दों का सही क्रम सिखाने में किया जाता है।</li>
+    </ul>
+
+    <h3>अक्षर श्रृंखला के कुछ उदाहरण:</h3>
+    <ul>
+      <li>अ, आ, इ, ई, उ, ऊ, ए, ऐ, ओ, औ (स्वर श्रृंखला)</li>
+      <li>क, ख, ग, घ, ङ, च, छ, ज (व्यंजन श्रृंखला)</li>
+      <li>A, B, C, D, E, F, G,... (अंग्रेज़ी वर्णमाला की श्रृंखला)</li>
+      <li>Z, Y, X, W, V,... (उल्टा वर्णमाला का क्रम)</li>
+    </ul>
+
+    <h2>अक्षर श्रृंखला में पैटर्न की पहचान</h2>
+    <p>अक्षर श्रृंखला को समझने और उनका सही उपयोग करने के लिए हमें पैटर्न की पहचान करनी होती है। उदाहरण के लिए, यदि हमें एक श्रृंखला दी जाती है जैसे A, B, C, ?, तो हम आसानी से अनुमान लगा सकते हैं कि अगला अक्षर 'D' होगा।</p>
+
+    <h3>अक्षर श्रृंखला का एक और उदाहरण:</h3>
+    <div id="sequence">
+      <div class="sequence-item">A</div>
+      <div class="sequence-item">B</div>
+      <div class="sequence-item">C</div>
+      <div class="sequence-item">D</div>
+      <div class="sequence-item">E</div>
+    </div>
+
+    <h2>निष्कर्ष</h2>
+    <p>अक्षर श्रृंखला का अध्ययन किसी भी भाषा के गहरे अध्ययन में महत्वपूर्ण भूमिका निभाता है। यह न केवल गणित और कोडिंग में मददगार है, बल्कि यह बच्चों को भाषाई कौशल सिखाने में भी सहायक है। अक्षर श्रृंखला के पैटर्न और नियमों को पहचानकर हम आसानी से भविष्यवाणियाँ कर सकते हैं और विभिन्न प्रकार की समस्याओं को हल कर सकते हैं।</p>
+  </div>
+  <footer>
+    <p>&copy; 2025 Educational Theme by Devkishan</p>
+  </footer>
+</body>
+</html>
