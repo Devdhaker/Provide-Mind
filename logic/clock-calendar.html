@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>घड़ी और कैलेंडर</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      color: #333;
+      line-height: 1.8;
+      padding: 20px;
+    }
+    header {
+      background: #343a40;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      margin-bottom: 30px;
+      border-radius: 10px;
+    }
+    .container {
+      max-width: 960px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+    .container:hover {
+      transform: translateY(-5px);
+    }
+    h1, h2, h3 {
+      color: #495057;
+      margin-bottom: 15px;
+    }
+    p {
+      margin: 10px 0;
+    }
+    ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      color: #666;
+      padding: 15px 0;
+      background: #f1f3f5;
+      border-radius: 10px;
+    }
+    .clock {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #007bff;
+      padding: 10px 0;
+      margin: 20px 0;
+    }
+    #calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+      text-align: center;
+      padding: 10px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    .day {
+      padding: 10px;
+      background: #007bff;
+      color: white;
+      border-radius: 5px;
+    }
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+    }
+  </style>
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('clock').innerText = `${hours}:${minutes}:${seconds}`;
+    }
+
+    function renderCalendar() {
+      const days = ['रवि', 'सोम', 'मंगल', 'बुध', 'गुरु', 'शुक्र', 'शनि'];
+      const calendar = document.getElementById('calendar');
+      calendar.innerHTML = ''; 
+      days.forEach(day => {
+        const dayElement = document.createElement('div');
+        dayElement.classList.add('day');
+        dayElement.textContent = day;
+        calendar.appendChild(dayElement);
+      });
+    }
+
+    setInterval(updateClock, 1000);
+    window.onload = renderCalendar;
+  </script>
+</head>
+<body>
+  <header>
+    <h1>घड़ी और कैलेंडर</h1>
+  </header>
+  <div class="container">
+    <h2>परिचय</h2>
+    <p>घड़ी और कैलेंडर हमारे जीवन के महत्वपूर्ण उपकरण हैं जो समय और तिथियों का सही प्रबंधन करने में हमारी मदद करते हैं। घड़ी समय का माप देती है, जबकि कैलेंडर विभिन्न तिथियों, महीनों और वर्षों की व्यवस्था प्रदान करता है।</p>
+
+    <h2>घड़ी</h2>
+    <p>घड़ी वह उपकरण है जो समय को घंटों, मिनटों और सेकंडों में प्रदर्शित करता है। यह डिजिटल या एनालॉग स्वरूप में हो सकती है।</p>
+
+    <div class="clock" id="clock">00:00:00</div>
+
+    <h3>घड़ी के प्रकार:</h3>
+    <ul>
+      <li>एनालॉग घड़ी</li>
+      <li>डिजिटल घड़ी</li>
+      <li>स्मार्ट घड़ी</li>
+      <li>दीवार घड़ी</li>
+    </ul>
+
+    <h3>घड़ी का महत्त्व:</h3>
+    <ul>
+      <li>समय प्रबंधन में सहायक</li>
+      <li>पाबंदी और अनुशासन का विकास</li>
+      <li>कार्य की समयसीमा निर्धारित करना</li>
+    </ul>
+
+    <h2>कैलेंडर</h2>
+    <p>कैलेंडर एक प्रणाली है जो दिनों, सप्ताहों, महीनों और वर्षों को व्यवस्थित करता है। यह व्यक्तिगत और व्यावसायिक योजनाओं के लिए अत्यंत उपयोगी है।</p>
+
+    <div id="calendar"></div>
+
+    <h3>कैलेंडर के प्रकार:</h3>
+    <ul>
+      <li>ग्रेगोरियन कैलेंडर</li>
+      <li>हिजरी कैलेंडर</li>
+      <li>पंचांग (हिंदू कैलेंडर)</li>
+      <li>चंद्र कैलेंडर</li>
+    </ul>
+
+    <h3>कैलेंडर का महत्त्व:</h3>
+    <ul>
+      <li>विशेष अवसरों और त्योहारों की योजना बनाना</li>
+      <li>व्यावसायिक कार्यों की समयसीमा निर्धारित करना</li>
+      <li>महत्वपूर्ण तिथियों की पहचान करना</li>
+    </ul>
+
+    <h2>घड़ी और कैलेंडर के उपयोग</h2>
+    <p>घड़ी और कैलेंडर का सही उपयोग समय प्रबंधन, योजना निर्माण और दैनिक जीवन की दक्षता में सुधार लाने में मदद करता है। इनका उपयोग व्यक्तिगत, व्यावसायिक और शैक्षणिक स्तर पर होता है।</p>
+
+    <h3>उपयोग के लाभ:</h3>
+    <ul>
+      <li>समय का सदुपयोग</li>
+      <li>अच्छा योजना प्रबंधन</li>
+      <li>महत्वपूर्ण कार्यों की प्राथमिकता निर्धारण</li>
+    </ul>
+
+    <h2>निष्कर्ष</h2>
+    <p>घड़ी और कैलेंडर हमारे जीवन के अनिवार्य हिस्से हैं। इनकी मदद से हम अपने समय और कार्यों को व्यवस्थित कर सकते हैं। तकनीकी विकास के साथ, डिजिटल घड़ियाँ और ऑनलाइन कैलेंडर हमारे जीवन को और भी सरल बना रहे हैं।</p>
+  </div>
+  <footer>
+    <p>&copy; 2025 Educational Theme by Devkishan</p>
+  </footer>
+</body>
+</html>
