@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>संख्या श्रृंखला</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      color: #333;
+      line-height: 1.8;
+      padding: 20px;
+    }
+    header {
+      background: #343a40;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      margin-bottom: 30px;
+      border-radius: 10px;
+    }
+    .container {
+      max-width: 960px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+    .container:hover {
+      transform: translateY(-5px);
+    }
+    h1, h2, h3 {
+      color: #495057;
+      margin-bottom: 15px;
+    }
+    p {
+      margin: 10px 0;
+    }
+    ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      color: #666;
+      padding: 15px 0;
+      background: #f1f3f5;
+      border-radius: 10px;
+    }
+    .clock {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #007bff;
+      padding: 10px 0;
+      margin: 20px 0;
+    }
+    #sequence {
+      display: flex;
+      justify-content: space-around;
+      padding: 10px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    .sequence-item {
+      padding: 10px;
+      background: #007bff;
+      color: white;
+      border-radius: 5px;
+    }
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+    }
+  </style>
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('clock').innerText = `${hours}:${minutes}:${seconds}`;
+    }
+
+    function generateSequence() {
+      const sequence = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
+      const sequenceContainer = document.getElementById('sequence');
+      sequenceContainer.innerHTML = '';
+      sequence.forEach(number => {
+        const item = document.createElement('div');
+        item.classList.add('sequence-item');
+        item.textContent = number;
+        sequenceContainer.appendChild(item);
+      });
+    }
+
+    setInterval(updateClock, 1000);
+    window.onload = generateSequence;
+  </script>
+</head>
+<body>
+  <header>
+    <h1>संख्या श्रृंखला</h1>
+  </header>
+  <div class="container">
+    <h2>परिचय</h2>
+    <p>संख्या श्रृंखला गणितीय अवधारणा है जिसमें संख्याओं का एक क्रम होता है, जिनमें एक निश्चित पैटर्न या नियम होता है। इन श्रृंखलाओं का अध्ययन गणित में किया जाता है और यह विभिन्न प्रकार के होते हैं। संख्या श्रृंखला का उद्देश्य किसी विशेष पैटर्न को पहचानना और भविष्य की संख्याओं का अनुमान लगाना है।</p>
+
+    <h2>संख्या श्रृंखला के प्रकार</h2>
+    <p>संख्या श्रृंखला के कई प्रकार होते हैं, जिनमें प्रमुख निम्नलिखित हैं:</p>
+
+    <h3>1. एरिथमेटिक श्रृंखला (Arithmetic Sequence)</h3>
+    <p>इस प्रकार की श्रृंखला में हर एक संख्या और अगले संख्या के बीच एक समान अंतर होता है। उदाहरण के लिए: 2, 5, 8, 11, 14, 17,...</p>
+
+    <h3>2. ज्यामितीय श्रृंखला (Geometric Sequence)</h3>
+    <p>इस प्रकार की श्रृंखला में हर एक संख्या का अगला संख्या एक निश्चित गुणांक से गुणा होता है। उदाहरण के लिए: 3, 6, 12, 24, 48,...</p>
+
+    <h3>3. Fibonacci श्रृंखला (Fibonacci Sequence)</h3>
+    <p>यह श्रृंखला एक प्रसिद्ध गणितीय श्रृंखला है, जिसमें हर एक संख्या पिछले दो अंशों का योग होती है। उदाहरण के लिए: 0, 1, 1, 2, 3, 5, 8, 13,...</p>
+
+    <h3>4. सायकल श्रृंखला (Cyclic Sequence)</h3>
+    <p>इसमें संख्याएं एक निश्चित पैटर्न के आधार पर पुनः शुरू होती हैं। उदाहरण के लिए: 1, 2, 3, 4, 1, 2, 3, 4,...</p>
+
+    <h2>संख्या श्रृंखला का उपयोग</h2>
+    <p>संख्या श्रृंखलाओं का उपयोग विभिन्न गणितीय और वास्तविक जीवन समस्याओं को हल करने में किया जाता है। उदाहरण के लिए, गणित में इसका उपयोग किसी पैटर्न को पहचानने, भविष्य की संख्याओं का अनुमान लगाने, और अधिक जटिल समस्याओं को हल करने में किया जाता है।</p>
+
+    <h3>संख्या श्रृंखला के अनुप्रयोग:</h3>
+    <ul>
+      <li>समीकरणों और असमानताओं में समाधान प्राप्त करना।</li>
+      <li>वित्तीय गणना (जैसे, ब्याज दरें, निवेश इत्यादि)।</li>
+      <li>विज्ञान में अनुसंधान, जैसे कि जैविक या रासायनिक प्रतिक्रियाओं के अध्ययन में।</li>
+      <li>डिजिटल अनुक्रमण (जैसे, बाइनरी संख्याएँ और डेटा एनकोडिंग)।</li>
+    </ul>
+
+    <h2>संख्या श्रृंखला में पैटर्न की पहचान</h2>
+    <p>संख्या श्रृंखला के पैटर्न को पहचानना बहुत महत्वपूर्ण होता है। इसका अभ्यास करने से व्यक्ति किसी भी प्रकार की श्रृंखला को जल्दी से समझ सकता है और उसका सही उत्तर दे सकता है। उदाहरण के लिए, एरिथमेटिक और ज्यामितीय श्रृंखलाओं के पैटर्न को पहचानने के लिए, हर एक सदस्य का अंतर या गुणांक देखा जाता है।</p>
+
+    <h3>संख्या श्रृंखला के कुछ उदाहरण:</h3>
+    <ul>
+      <li>2, 4, 6, 8, 10, 12, 14,... (यह एरिथमेटिक श्रृंखला है, जिसमें प्रत्येक सदस्य के बीच 2 का अंतर है)।</li>
+      <li>3, 6, 12, 24, 48,... (यह ज्यामितीय श्रृंखला है, जिसमें प्रत्येक सदस्य को 2 से गुणा किया गया है)।</li>
+      <li>0, 1, 1, 2, 3, 5, 8,... (यह Fibonacci श्रृंखला है, जिसमें प्रत्येक सदस्य दो पिछले अंशों का योग है)।</li>
+    </ul>
+
+    <h2>निष्कर्ष</h2>
+    <p>संख्या श्रृंखलाएँ गणित की महत्वपूर्ण अवधारणाओं में से एक हैं। इन्हें समझने और पहचानने से गणितीय समस्याओं को हल करना आसान हो जाता है। विभिन्न प्रकार की संख्या श्रृंखलाओं का उपयोग गणना, भविष्यवाणी और अनुसंधान में किया जाता है।</p>
+
+    <h3>संख्या श्रृंखला का उदाहरण:</h3>
+    <div id="sequence"></div>
+  </div>
+  <footer>
+    <p>&copy; 2025 Educational Theme by Devkishan</p>
+  </footer>
+</body>
+</html>
