@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>वेन आरेख</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      color: #333;
+      line-height: 1.8;
+      padding: 20px;
+    }
+    header {
+      background: #343a40;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      margin-bottom: 30px;
+      border-radius: 10px;
+    }
+    .container {
+      max-width: 960px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+    .container:hover {
+      transform: translateY(-5px);
+    }
+    h1, h2, h3 {
+      color: #495057;
+      margin-bottom: 15px;
+    }
+    p {
+      margin: 10px 0;
+    }
+    ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      color: #666;
+      padding: 15px 0;
+      background: #f1f3f5;
+      border-radius: 10px;
+    }
+    .venn-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 300px;
+      margin-bottom: 30px;
+    }
+    .venn {
+      position: relative;
+      width: 250px;
+      height: 250px;
+    }
+    .venn-circle {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      opacity: 0.6;
+    }
+    .venn-circle1 {
+      background-color: rgba(255, 0, 0, 0.6);
+      left: 20px;
+    }
+    .venn-circle2 {
+      background-color: rgba(0, 0, 255, 0.6);
+      top: 20px;
+    }
+    .venn-circle3 {
+      background-color: rgba(0, 255, 0, 0.6);
+      left: 100px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>वेन आरेख (Venn Diagram)</h1>
+  </header>
+  <div class="container">
+    <h2>परिचय</h2>
+    <p>वेन आरेख एक प्रकार का आरेख है, जिसका उपयोग विभिन्न सेटों (sets) के बीच समानताएँ, अंतर और उनके संयोजन (union) को दर्शाने के लिए किया जाता है। इसमें वृत्तों (circles) का उपयोग किया जाता है, जहाँ हर वृत्त एक सेट को दर्शाता है। यह आरेख सेटों के बीच संबंधों को आसानी से और स्पष्ट रूप से दिखाता है। वेन आरेख का आविष्कार गणितज्ञ <strong>जॉन वेन</strong> ने किया था, और इसका उपयोग गणित, तर्क, तर्कशास्त्र, सांस्कृतिक अध्ययन, और संगणक विज्ञान में भी किया जाता है।</p>
+
+    <h2>वेन आरेख का उद्देश्य</h2>
+    <p>वेन आरेख का मुख्य उद्देश्य यह दिखाना है कि विभिन्न सेटों के बीच कौन-सी वस्तुएं समान हैं, कौन-सी अलग हैं, और कौन-सी वस्तुएं दोनों सेटों में सामान्य रूप से मौजूद हैं। यह आरेख का उपयोग अधिकतर गणना और विश्लेषणात्मक प्रक्रियाओं में किया जाता है। इसके द्वारा हम यह समझ सकते हैं कि दो या दो से अधिक सेटों के बीच क्या समानताएँ हैं और क्या अंतर है।</p>
+
+    <h2>वेन आरेख के प्रकार</h2>
+    <p>वेन आरेख के मुख्य रूप से निम्नलिखित प्रकार होते हैं:</p>
+    <ul>
+      <li><strong>दो सेटों का वेन आरेख:</strong> इसमें दो वृत्त होते हैं, जो एक दूसरे को कुछ हद तक ओवरलैप करते हैं। यह सेटों के बीच सामान्यत: एक साझा क्षेत्र को दिखाता है।</li>
+      <li><strong>तीन सेटों का वेन आरेख:</strong> इसमें तीन वृत्त होते हैं, जो आपस में ओवरलैप करते हैं और बीच में साझा क्षेत्र को दर्शाते हैं। यह अधिक जटिल रिश्तों को प्रदर्शित करता है।</li>
+      <li><strong>चार या अधिक सेटों का वेन आरेख:</strong> इसमें चार या अधिक सेट होते हैं, जो ओवरलैप करते हैं। इसका उपयोग अधिक जटिल स्थितियों को दर्शाने के लिए किया जाता है।</li>
+    </ul>
+
+    <h2>वेन आरेख का उपयोग</h2>
+    <p>वेन आरेख का उपयोग विभिन्न क्षेत्रों में किया जाता है:</p>
+    <ul>
+      <li><strong>गणित और सांख्यिकी:</strong> वेन आरेख का उपयोग गणित में सेट सिद्धांत (set theory) और सांख्यिकीय विश्लेषण में किया जाता है, जैसे कि किसी विशेष वर्ग के सदस्यता संबंधी डेटा का विश्लेषण।</li>
+      <li><strong>विज्ञान और अनुसंधान:</strong> इसका उपयोग जीवविज्ञान, रसायन शास्त्र और भौतिकी में विभिन्न तत्वों या प्रजातियों के बीच संबंधों को दर्शाने के लिए किया जाता है।</li>
+      <li><strong>सामाजिक विज्ञान:</strong> समाजशास्त्र में इसका उपयोग सामाजिक समूहों और उनके बीच के रिश्तों को समझने के लिए किया जाता है।</li>
+      <li><strong>संगणक विज्ञान:</strong> वेन आरेख का उपयोग संगणक विज्ञान में डेटाबेस, एल्गोरिदम और संरचनाओं के विश्लेषण के लिए किया जाता है।</li>
+    </ul>
+
+    <h2>वेन आरेख के उदाहरण</h2>
+    <p>नीचे एक उदाहरण दिया गया है जो तीन सेटों के बीच संबंध को दिखाता है:</p>
+    <div class="venn-container">
+      <div class="venn">
+        <div class="venn-circle venn-circle1"></div>
+        <div class="venn-circle venn-circle2"></div>
+        <div class="venn-circle venn-circle3"></div>
+      </div>
+    </div>
+
+    <p>उपर्युक्त वेन आरेख में तीन वृत्तों के ओवरलैप क्षेत्रों को दर्शाया गया है। प्रत्येक वृत्त एक अलग सेट को दर्शाता है। इन वृत्तों के बीच का ओवरलैप क्षेत्र यह दिखाता है कि सेटों के बीच क्या समानताएँ हैं। उदाहरण स्वरूप, अगर सेट A में 'फल' हैं, सेट B में 'हरी सब्जियाँ' हैं और सेट C में 'हरी फल' हैं, तो ओवरलैप क्षेत्र यह दिखाएगा कि हरे फल दोनों श्रेणियों (हरी सब्जियाँ और फल) में आते हैं।</p>
+
+    <h2>वेन आरेख का महत्व</h2>
+    <p>वेन आरेख के महत्व को समझते हुए, यह कहा जा सकता है कि यह एक प्रभावी और सरल तरीका है किसी भी जटिल सेट के रिश्ते को स्पष्ट रूप से प्रस्तुत करने का। यह विश्लेषण को आसान और दृष्टिगत बनाता है, जिससे इसे समझना और उपयोग करना सरल होता है। विशेष रूप से, यह डेटा और जानकारी को संयोजित करने और उनका तुलनात्मक अध्ययन करने के लिए एक आदर्श उपकरण है।</p>
+  </div>
+  <footer>
+    <p>&copy; 2025 Educational Theme by Devkishan</p>
+  </footer>
+</body>
+</html>
