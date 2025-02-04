@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms and Conditions</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #ffcc00;
+    }
+    h2 {
+      color: #ff9900;
+    }
+    a {
+      color: #ffcc00;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Terms and Conditions</h1>
+  <p><strong>Last Updated:</strong> [Date]</p>
+
+  <h2>1. Acceptance</h2>
+  <p>By accessing this website, you agree to be bound by these terms and conditions. If you do not agree, please do not use the site.</p>
+
+  <h2>2. Services</h2>
+  <p>The content and services provided on this website are for informational and entertainment purposes only.</p>
+
+  <h2>3. User Responsibilities</h2>
+  <ul>
+    <li>Do not engage in any illegal activities.</li>
+    <li>Do not copy or republish content without permission.</li>
+    <li>Do not post spam, malware, or harmful code.</li>
+  </ul>
+
+  <h2>4. Intellectual Property Rights</h2>
+  <p>All content on this website, including text, graphics, and logos, belongs to us or our licensors.</p>
+
+  <h2>5. Limitation of Liability</h2>
+  <p>We are not responsible for any direct or indirect damage resulting from the use of this website.</p>
+
+  <h2>6. External Links</h2>
+  <p>This site may contain links to external websites. We are not responsible for the content or policies of those sites.</p>
+
+  <h2>7. Privacy Policy</h2>
+  <p>Please read our Privacy Policy to understand how we manage your information.</p>
+
+  <h2>8. Changes to Terms</h2>
+  <p>We reserve the right to update these terms at any time.</p>
+
+  <h2>9. Contact Us</h2>
+  <p>If you have any questions, please contact us at [Contact Information].</p>
+</body>
+</html>
