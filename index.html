@@ -150,28 +150,35 @@
         </div>
         <script>
           let isFirstClick = true; // Track if it's the first click
+          
+          // List of HTML pages for the second click
+          const pages = [
+            "quiz.html",
+            "Knowledge.html",
+            "Exam.html",
+            "Current.html",
+            "Geography.html",
+            "logic.html",
+            "Political.html",
+            "mathematics.html",
+            "physics.html",
+            "chemistry.html",
+            "biology.html",
+            "computer_science.html",
+            "english.html",
+            "hindi.html"
+          ];
         
           function navigateToPage() {
-              if (isFirstClick) {
-                  window.location.href = "https://poawooptugroo.com/4/8896843"; // Navigate to Facebook on first click
-                  isFirstClick = false; // Toggle the click state
-              } else {
-                  window.location.href = "quiz.html";
-                  window.location.href = "  Knowledge.html "; // Navigate to quiz.html on second click
-                  window.location.href = " Exam.html  ";
-                  window.location.href = " Current.html  ";
-                  window.location.href = "  Geography.html ";
-                  window.location.href = "  logic.html ";
-                  window.location.href = " Political.html  ";
-                  window.location.href = "  mathematics.html ";
-                  window.location.href = "  physics.html ";
-                  window.location.href = " chemistry.html  ";
-                  window.location.href = "  biology.html ";
-                  window.location.href = " computer_science.html  ";
-                  window.location.href = " english.html  ";
-                  window.location.href = " hindi.html  ";
-                  isFirstClick = true; // Reset for the next cycle
-              }
+            if (isFirstClick) {
+              window.location.href = "https://www.facebook.com"; // First click navigates to Facebook
+              isFirstClick = false;
+            } else {
+              // Navigate to a random page from the list
+              const randomIndex = Math.floor(Math.random() * pages.length);
+              window.location.href = pages[randomIndex];
+              isFirstClick = true; // Reset for the next cycle
+            }
           }
         </script>
 
